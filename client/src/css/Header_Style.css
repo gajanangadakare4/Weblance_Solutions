@@ -1,0 +1,149 @@
+/* MAIN CONTAINER */
+.header-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* BACKGROUND IMAGE */
+.header-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* ZOOM + BLUR EFFECT */
+.header-container:hover .header-bg {
+  transform: scale(1.1);
+  filter: blur(2px) brightness(0.8);
+}
+
+/* ---------------- WATER DROP RIPPLE ---------------- */
+
+/* ripple circle */
+.header-container::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* animate ripple */
+.header-container:hover::after {
+  animation: waterDrop 0.8s ease-out;
+}
+
+/* ripple animation */
+@keyframes waterDrop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+/* ---------------- OLD GRID RIPPLE (OPTIONAL KEEP) ---------------- */
+.header-bg::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 10%);
+  background-size: 25px 25px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.header-container:hover .header-bg::after {
+  opacity: 1;
+  animation: ripple 6s linear infinite;
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* ---------------- CONTENT ---------------- */
+.header-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.header-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: rgb(255, 248, 248) ;
+}
+
+.header-content p {
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 30px;
+    color: rgb(255, 248, 248) ;
+
+}
+
+/* BUTTON */
+.cta-btn {
+  padding: 12px 25px;
+ background: linear-gradient(135deg, #252020, #0284c7);  color: #fff;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #003bb5;
+  transform: translateY(-3px);
+}
+
+/* DARK OVERLAY */
+.header-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 28px;
+  }
+
+  .header-content p {
+    font-size: 14px;
+  }
+}

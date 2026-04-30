@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+body{
+    background-color: #EEF6FF;
+     margin: 0px;
+     padding: 10px;
+  }

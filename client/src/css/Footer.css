@@ -1,0 +1,296 @@
+
+/* =========================
+   FOOTER BASE
+========================= */
+.footer {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 60px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* =========================
+   BRAND SECTION
+========================= */
+.footer-brand h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  background: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  background: #38bdf8;
+  transform: translateY(-4px);
+}
+
+/* =========================
+   LINKS SECTION
+========================= */
+.footer-links h3,
+.footer-contact h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.footer-contact p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #cbd5e1;
+}
+
+.footer-cta {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #1d5c77;
+  color: #0f172a;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.footer-cta:hover {
+ background: linear-gradient(135deg, #252020, #0284c7);  color: #fff;
+  color: white;
+}
+
+/* =========================
+   FOOTER BOTTOM
+========================= */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #1e293b;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* =========================
+   FLOATING BUTTONS
+========================= */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* WhatsApp */
+.whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+
+/* AI Chat */
+.chat {
+  background: #0ea5e9;
+  color: white;
+}
+
+.chat:hover {
+  transform: scale(1.1);
+}
+
+/* =========================
+   CHAT BOX
+========================= */
+.chat-box {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* HEADER */
+.chat-header {
+  background: #080d0f;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* BODY */
+.chat-body {
+  padding: 10px;
+  height: 220px;
+  overflow-y: auto;
+  background: #f1f5f9;
+}
+
+/* MESSAGES */
+.chat-msg {
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  max-width: 80%;
+}
+
+.chat-msg.bot {
+  background: #e2e8f0;
+  align-self: flex-start;
+}
+
+.chat-msg.user {
+  background: #111b20;
+  color: white;
+  margin-left: auto;
+}
+
+/* INPUT AREA */
+.chat-footer {
+  display: flex;
+  border-top: 1px solid #e2e8f0;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.chat-footer button {
+  background: #111e24;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+/* WHATSAPP LINK INSIDE CHAT */
+.chat-whatsapp {
+  text-align: center;
+  padding: 10px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-box {
+    width: 90%;
+    right: 5%;
+  }
+}

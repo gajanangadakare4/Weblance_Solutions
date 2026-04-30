@@ -1,0 +1,93 @@
+/* SECTION */
+.whyus-section {
+  padding: 80px 20px; /* added side padding */
+  background: linear-gradient(135deg, #f5f8ff, #eef3ff);
+}
+
+/* CONTAINER (important fix if not defined globally) */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+.whyus-header {
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.whyus-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.whyus-header p {
+  color: #555;
+  font-size: 16px;
+}
+
+/* GRID */
+.whyus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.whyus-card {
+  position: relative;
+  padding: 25px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  transition: 0.4s ease;
+  overflow: hidden;
+}
+
+/* GRADIENT BORDER */
+.whyus-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(120deg, #0b5cff, transparent, #00c6ff);
+
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* HOVER */
+.whyus-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.whyus-card h3 {
+  margin-bottom: 10px;
+  color: #0b5cff;
+  font-size: 18px;
+}
+
+/* TEXT */
+.whyus-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .whyus-header h2 {
+    font-size: 26px;
+  }
+}
