@@ -24,6 +24,7 @@ import EnquiryForm from "./pages/EnquiryForm";
 import Process from "./layouts/Process";
 import ContactForm from "./pages/ContactForm";
 import ScrollToHash from "./layouts/ScrollToHash";
+import FAQ from "./layouts/FAQ";
 // import EnquiryForm from "./pages/EnquiryForm";
  
 
@@ -45,14 +46,15 @@ const App = () => {
               <About />
               <Founder_Message />
               <Service />
-              <WhyUs />
               <TechStack />
+              <Process /> 
+              <WhyUs />
               <Projects />
               <Reviews />
-              <Process /> 
               <Pricing/>
-              <Address />
+              <FAQ/>
               <EnquiryForm />
+              <Address />
               <Footer />
             </>
           }

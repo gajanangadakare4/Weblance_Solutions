@@ -7,13 +7,22 @@ import node from "../assets/node.png";
 import mongo from "../assets/mongo.jpg";
 import figma from "../assets/figma.png";
 import java from "../assets/java.png";
+import python from "../assets/python.jpg";
+
 
 /* Digital Marketing Tools */
 import seo from "../assets/seo.jpg";
 import analytics from "../assets/google-analytics.jpg";
 import ads from "../assets/google-ads.png";
 import metaAds from "../assets/meta-ads.png";
-// import mailchimp from "../assets/mailchimp.png";
+import semrush from "../assets/semrush.png";
+import mailchimp from "../assets/mailchimp.png";
+import ahrefs from '../assets/ahrefs.png';
+import canva from '../assets/canva.jpg';
+import hootsuite from '../assets/hootsuite.png';
+import hubspot from '../assets/hubspot.png';
+
+
 
 import "../css/TechStack.css";
 
@@ -28,17 +37,67 @@ const TechStack = () => {
     { name: "Node.js", desc: "Backend development for scalable applications.", img: node },
     { name: "MongoDB", desc: "Flexible and scalable NoSQL database.", img: mongo },
     { name: "Java", desc: "Backend development for enterprise-level applications.", img: java },
-    { name: "Figma", desc: "UI/UX design and prototyping tools.", img: figma }
+    { name: "Figma", desc: "UI/UX design and prototyping tools.", img: figma },
+{ 
+  name: "Python", 
+  desc: "A versatile programming language used for web development, automation, data science, AI, and backend applications.", 
+  img: python 
+}
   ];
 
   /* MARKETING STACK */
   const marketingStack = [
-    { name: "SEO Tools", desc: "Optimize websites for better search engine rankings.", img: seo },
-    { name: "Google Analytics", desc: "Track and analyze website traffic and performance.", img: analytics },
-    { name: "Google Ads", desc: "Run high-converting paid ad campaigns.", img: ads },
-    { name: "Meta Ads", desc: "Facebook & Instagram ad campaigns for lead generation.", img: metaAds },
-    // { name: "Email Marketing", desc: "Automated campaigns and customer engagement.", img: mailchimp }
-  ];
+  {
+    name: "SEO Tools",
+    desc: "Optimize websites for better search engine rankings.",
+    img: seo
+  },
+  {
+    name: "Google Analytics",
+    desc: "Track and analyze website traffic and performance.",
+    img: analytics
+  },
+  {
+    name: "Google Ads",
+    desc: "Run high-converting paid ad campaigns.",
+    img: ads
+  },
+  {
+    name: "Meta Ads",
+    desc: "Facebook & Instagram ad campaigns for lead generation.",
+    img: metaAds
+  },
+  {
+    name: "SEMrush",
+    desc: "All-in-one digital marketing toolkit for SEO, PPC, and competitor analysis.",
+    img: semrush
+  },
+  {
+    name: "Ahrefs",
+    desc: "Advanced SEO platform for backlinks, keyword research, and audits.",
+    img: ahrefs
+  },
+  {
+    name: "Mailchimp",
+    desc: "Email marketing platform for campaigns, automation, and newsletters.",
+    img: mailchimp
+  },
+  {
+    name: "Canva",
+    desc: "Create engaging social media graphics, ads, and marketing content.",
+    img: canva
+  },
+  {
+    name: "Hootsuite",
+    desc: "Manage and schedule social media campaigns across multiple platforms.",
+    img: hootsuite
+  },
+  {
+    name: "HubSpot",
+    desc: "CRM and marketing automation tool for inbound marketing strategies.",
+    img: hubspot
+  }
+];
 
   return (
     <section className="tech-section">

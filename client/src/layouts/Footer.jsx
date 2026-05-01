@@ -160,7 +160,7 @@ const getBotReply = (msg) => {
           <div className="footer-links">
             <h3>Services</h3>
             <ul>
-              <li><a href="#">Website Development and Redesign</a></li>
+              <li><a href="#">Website Development</a></li>
               <li><a href="#">SEO Optiization</a></li>
               <li><a href="#">Email Marketing</a></li>
               <li><a href="#">Social Media Marketing</a></li>

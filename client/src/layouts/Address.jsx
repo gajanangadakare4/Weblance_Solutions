@@ -9,19 +9,19 @@ const Contact = () => {
         {/* HEADER */}
         <div className="contact-header">
           <h2>Visit Our Office</h2>
-          <p>We’d love to connect with you. Reach out or visit us anytime.</p>
+          <p>
+            We’d love to connect with you. Reach out or visit us anytime.
+          </p>
         </div>
 
+        {/* CONTENT */}
         <div className="contact-content">
 
           {/* MAP */}
           <div className="map-container">
             <iframe
               title="company-location"
-              src="https://www.google.com/maps?q=Hubli?q=Vidyanagar,Karnataka&output=embed"
-              width="100%"
-              height="300"
-              style={{ border: 0 }}
+              src="https://www.google.com/maps?q=Vidyanagar,Hubli,Karnataka&output=embed"
               allowFullScreen=""
               loading="lazy"
             ></iframe>
@@ -29,29 +29,47 @@ const Contact = () => {
 
           {/* DETAILS */}
           <div className="contact-details">
+
             <h3>Weblance Solutions</h3>
 
-            <p><strong>Address:</strong><br />
-              4th Cross Vidyanagar,<br />
-              Hubli, Karnataka, India
-            </p>
+            <div className="contact-row">
+              <strong>Address:</strong>
 
-            <p><strong>Phone:</strong><br />
-              +91 8496950841
-            </p>
+              <span>
+                4th Cross Vidyanagar,
+                Hubli, Karnataka, India
+              </span>
+            </div>
 
-            <p><strong>Email:</strong><br />
-              contact@Weblancesolutions.com
-            </p>
+            <div className="contact-row">
+              <strong>Phone:</strong>
 
-            <p><strong>Working Hours:</strong><br />
-              Mon - Sat: 9:00 AM - 7:00 PM<br />
-              Sunday: Closed
-            </p>
+              <span>
+                +91 8496950841
+              </span>
+            </div>
+
+            <div className="contact-row">
+              <strong>Email:</strong>
+
+              <span>
+                contact@Weblancesolutions.com
+              </span>
+            </div>
+
+            <div className="contact-row">
+              <strong>Working Hours:</strong>
+
+              <span>
+                Mon - Sat: 9:00 AM - 7:00 PM
+                <br />
+                Sunday: Closed
+              </span>
+            </div>
+
           </div>
 
         </div>
-
       </div>
     </section>
   );
