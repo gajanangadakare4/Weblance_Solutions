@@ -8,7 +8,7 @@ import Pricing from "./pages/Pricing";
 import WebsitePricing from "./pages/WebsitePricing";
 import MarketingPricing from "./pages/MarketingPricing";
 
-// Layout / Home Components
+// Layout / Components
 import Navbar from "./layouts/Navbar.jsx";
 import Header_Section from "./layouts/Header_Section";
 import About from "./pages/About.jsx";
@@ -23,47 +23,61 @@ import Footer from "./layouts/Footer";
 import EnquiryForm from "./pages/EnquiryForm";
 import Process from "./layouts/Process";
 import ContactForm from "./pages/ContactForm";
-import ScrollToHash from "./layouts/ScrollToHash";
+import ScrollToTop from "./layouts/ScrollToTop";
 import FAQ from "./layouts/FAQ";
-// import EnquiryForm from "./pages/EnquiryForm";
- 
+
+const HomePage = () => {
+  return (
+    <>
+      <Header_Section />
+
+      <section id="about">
+        <About />
+      </section>
+
+      <Founder_Message />
+
+      <section id="services">
+        <Service />
+      </section>
+
+      <TechStack />
+      <Process />
+      <WhyUs />
+      <Projects />
+      <Reviews />
+
+      <section id="pricing">
+        <Pricing />
+      </section>
+
+      <FAQ />
+      <EnquiryForm />
+      <Address />
+      <Footer />
+    </>
+  );
+};
 
 const App = () => {
   return (
     <BrowserRouter>
 
+      <ScrollToTop />
+
       <Navbar />
-       <ScrollToHash />
 
       <Routes>
 
-        {/* HOME PAGE (your full landing page) */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Header_Section />
-              <About />
-              <Founder_Message />
-              <Service />
-              <TechStack />
-              <Process /> 
-              <WhyUs />
-              <Projects />
-              <Reviews />
-              <Pricing/>
-              <FAQ/>
-              <EnquiryForm />
-              <Address />
-              <Footer />
-            </>
-          }
-        />
+        {/* HOME */}
+        <Route path="/" element={<HomePage />} />
 
-        {/* PRICING PAGES */}
+        {/* PRICING */}
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/pricing/website" element={<WebsitePricing />} />
         <Route path="/pricing/marketing" element={<MarketingPricing />} />
+
+        {/* CONTACT */}
         <Route path="/enquiry" element={<ContactForm />} />
 
       </Routes>

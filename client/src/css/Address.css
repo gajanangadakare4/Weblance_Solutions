@@ -3,7 +3,7 @@
 ========================= */
 .contact-section {
   padding: 90px 20px;
-  background: #000;
+  background: #ffffff;
   overflow: hidden;
 }
 
@@ -24,14 +24,14 @@
 .contact-header h2 {
   font-size: 42px;
   font-weight: 700;
-  color: #fff;
+  color: #000000;
   margin-bottom: 12px;
   line-height: 1.2;
 }
 
 .contact-header p {
   font-size: 17px;
-  color: #cbd5e1;
+  color: #040405;
   max-width: 650px;
   margin: auto;
   line-height: 1.7;

@@ -31,18 +31,28 @@ const Reviews = () => {
         {/* HEADER */}
         <div className="review-header">
           <h2>What Our Clients Say</h2>
+
           <p>
-            We take pride in delivering quality work and building long-term relationships with our clients.
+            We take pride in delivering quality work and building
+            long-term relationships with our clients.
           </p>
         </div>
 
-        {/* CARDS */}
+        {/* REVIEWS */}
         <div className="review-grid">
+
           {reviews.map((item, index) => (
             <div className="review-card" key={index}>
 
-              <p className="review-text">“{item.feedback}”</p>
+              {/* QUOTE ICON */}
+              <div className="quote-icon">❝</div>
 
+              {/* REVIEW TEXT */}
+              <p className="review-text">
+                {item.feedback}
+              </p>
+
+              {/* USER */}
               <div className="review-user">
                 <h4>{item.name}</h4>
                 <span>{item.role}</span>
@@ -50,6 +60,7 @@ const Reviews = () => {
 
             </div>
           ))}
+
         </div>
 
       </div>

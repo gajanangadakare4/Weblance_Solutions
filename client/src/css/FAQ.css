@@ -1,8 +1,8 @@
 /* FAQ SECTION */
 .faq-section {
   padding: 100px 0;
-  background: #000000;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
 }
 
 .container {
@@ -20,11 +20,11 @@
 .faq-header h2 {
   font-size: 42px;
   margin-bottom: 15px;
-  color: #fff;
+  color: #000000;
 }
 
 .faq-header p {
-  color: #ffffff;
+  color: #000000;
   font-size: 18px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .faq-item {
-  color: #fff;
+  color: #000000;
   border-radius: 14px;
   overflow: hidden;
   transition: 0.3s ease;
@@ -62,13 +62,13 @@
 .faq-question h3, p {
   font-size: 20px;
   margin: 0;
-    color: #fff;
+    color: #000000;
 
 }
 
 .faq-question span {
   font-size: 28px;
-  color: #e4e4e4;
+  color: #000000;
   font-weight: bold;
 }
 

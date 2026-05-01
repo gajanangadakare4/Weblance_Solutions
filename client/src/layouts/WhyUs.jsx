@@ -6,62 +6,80 @@ const WhyUs = () => {
   const reasons = [
     {
       title: "Experienced Team 👨‍💻",
-      desc: "Our team brings strong industry experience to deliver reliable and high-quality digital solutions tailored to your needs."
+      desc:
+        "Our experienced team delivers reliable, high-quality digital solutions tailored to your business needs."
     },
     {
       title: "Client-Centric Approach 🤝",
-      desc: "We focus on understanding your business goals and provide customized solutions that align with your vision."
+      desc:
+        "We understand your business goals and create customized solutions aligned with your vision and objectives."
     },
     {
       title: "Result-Oriented Work 📈",
-      desc: "We don’t just build projects — we focus on delivering measurable results that help your business grow."
+      desc:
+        "We focus on delivering measurable results that help improve growth, engagement, and business performance."
     },
     {
       title: "Affordable Pricing 💰",
-      desc: "We provide cost-effective solutions without compromising on quality, making us ideal for startups and small businesses."
+      desc:
+        "We provide cost-effective solutions without compromising quality, making us ideal for startups and growing businesses."
     },
     {
       title: "End-to-End Solutions 🔄",
-      desc: "From development to marketing, we handle everything so you can focus on growing your business."
+      desc:
+        "From development to digital marketing, we handle complete solutions so you can focus on your business."
     },
     {
       title: "On-Time Delivery ⏱️",
-      desc: "We value your time and ensure every project is delivered within the promised timeline."
+      desc:
+        "We value your time and ensure every project is completed and delivered within the committed timeline."
     },
     {
       title: "Modern Technologies 🚀",
-      desc: "We use the latest tools and technologies to build scalable, secure, and future-ready digital solutions."
+      desc:
+        "We use the latest technologies and industry best practices to build scalable, secure, and future-ready solutions."
     },
     {
       title: "Continuous Support 📞",
-      desc: "Our relationship doesn’t end after delivery — we provide ongoing support to ensure your business keeps growing."
+      desc:
+        "Our partnership continues after delivery with ongoing support, maintenance, and improvements."
     }
   ];
 
   return (
     <section className="whyus-section">
+
       <div className="container">
 
         {/* HEADER */}
         <div className="whyus-header">
-          <h2>Why Choose Us </h2>
+
+          <h2>Why Choose Us</h2>
+
           <p>
-            We combine expertise, innovation, and dedication to deliver solutions 
-            that truly make a difference for your business.
+            We combine expertise, innovation, and dedication to deliver
+            digital solutions that create real value for your business.
           </p>
+
         </div>
 
         {/* CARDS */}
         <div className="whyus-grid">
+
           {reasons.map((item, index) => (
             <div className="whyus-card" key={index}>
+
               <h3>{item.title}</h3>
+
               <p>{item.desc}</p>
+
             </div>
           ))}
+
         </div>
 
       </div>
+
     </section>
   );
 };
