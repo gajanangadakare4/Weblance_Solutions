@@ -1,84 +1,103 @@
 import React, { useState } from "react";
 import "../css/ContactForm.css";
-import Footer from "../layouts/Footer"; // ✅ ADD FOOTER
-import "../css/Footer.css";
-
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+  const initialState = {
     name: "",
     email: "",
     phone: "",
     service: "",
     message: ""
-  });
+  };
 
+  const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value
-    });
+    }));
+
+    // remove error on typing (better UX)
+    setErrors((prev) => ({
+      ...prev,
+      [e.target.name]: ""
+    }));
   };
 
-  const validate = () => {
-    let newErrors = {};
+  const validate = (data) => {
+    const err = {};
 
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email";
+    if (!data.name.trim()) err.name = "Name is required";
+
+    if (!data.email.trim()) {
+      err.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+      err.email = "Enter a valid email";
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Enter valid 10-digit phone";
+    if (!data.phone.trim()) {
+      err.phone = "Phone is required";
+    } else if (!/^\d{10}$/.test(data.phone)) {
+      err.phone = "Enter valid 10-digit number";
     }
 
-    if (!formData.service) newErrors.service = "Select a service";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+    if (!data.service) err.service = "Please select a service";
 
-    return newErrors;
+    if (!data.message.trim()) err.message = "Message is required";
+
+    return err;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const validationErrors = validate();
+    const validationErrors = validate(formData);
 
-    if (Object.keys(validationErrors).length > 0) {
+    if (Object.keys(validationErrors).length) {
       setErrors(validationErrors);
-    } else {
-      console.log("Form Data:", formData);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await new Promise((res) => setTimeout(res, 1200));
 
       setSubmitted(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: ""
-      });
+      setFormData(initialState);
       setErrors({});
+    } catch (err) {
+      console.error("Submission error:", err);
+    } finally {
+      setLoading(false);
+
+      setTimeout(() => setSubmitted(false), 3500);
     }
   };
 
   return (
-    <>
-      <section className="enquiry-section">
-        <div className="container">
+    <section className="enquiry-section">
 
-          <div className="enquiry-header">
-            <h2>Start Your Project</h2>
-            <p>Tell us about your requirements and we’ll get back to you shortly.</p>
-          </div>
+      <div className="enquiry-container">
 
-          <form className="enquiry-form" onSubmit={handleSubmit}>
+        {/* HEADER */}
+        <div className="enquiry-header">
+          <h2>Start Your Project</h2>
+          <p>
+            Share your requirements — we’ll craft a solution tailored to your business.
+          </p>
+        </div>
 
+        {/* FORM */}
+        <form className="enquiry-form" onSubmit={handleSubmit}>
+
+          <div className="form-grid">
+
+            {/* NAME */}
             <div className="form-group">
               <input
                 type="text"
@@ -87,9 +106,10 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
               />
-              {errors.name && <span>{errors.name}</span>}
+              {errors.name && <span className="error">{errors.name}</span>}
             </div>
 
+            {/* EMAIL */}
             <div className="form-group">
               <input
                 type="email"
@@ -98,20 +118,22 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
               />
-              {errors.email && <span>{errors.email}</span>}
+              {errors.email && <span className="error">{errors.email}</span>}
             </div>
 
+            {/* PHONE */}
             <div className="form-group">
               <input
-                type="text"
+                type="tel"
                 name="phone"
                 placeholder="Phone Number"
                 value={formData.phone}
                 onChange={handleChange}
               />
-              {errors.phone && <span>{errors.phone}</span>}
+              {errors.phone && <span className="error">{errors.phone}</span>}
             </div>
 
+            {/* SERVICE */}
             <div className="form-group">
               <select
                 name="service"
@@ -119,45 +141,47 @@ const ContactForm = () => {
                 onChange={handleChange}
               >
                 <option value="">Select Service</option>
-                <option>Website Development & Re-Designing</option>
+                <option>Website Development</option>
                 <option>UI/UX Design</option>
                 <option>E-Commerce Development</option>
                 <option>SEO Optimization</option>
-                <option>Social Media Marketing</option>
+                <option>Digital Marketing</option>
                 <option>Mobile App Development</option>
               </select>
-              {errors.service && <span>{errors.service}</span>}
+              {errors.service && <span className="error">{errors.service}</span>}
             </div>
 
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Tell us about your project..."
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
-              {errors.message && <span>{errors.message}</span>}
+          </div>
+
+          {/* MESSAGE */}
+          <div className="form-group full">
+            <textarea
+              name="message"
+              placeholder="Tell us about your project..."
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+            />
+            {errors.message && <span className="error">{errors.message}</span>}
+          </div>
+
+          {/* BUTTON */}
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "Submitting..." : "Send Enquiry"}
+          </button>
+
+          {/* SUCCESS */}
+          {submitted && (
+            <div className="success-msg">
+              ✔ Your enquiry has been submitted successfully!
             </div>
+          )}
 
-            <button type="submit" className="submit-btn">
-              Submit Enquiry
-            </button>
+        </form>
 
-            {submitted && (
-              <p className="success-msg">
-                ✅ Your enquiry has been submitted successfully!
-              </p>
-            )}
+      </div>
 
-          </form>
-
-        </div>
-      </section>
-
-      {/* ✅ FOOTER ADDED */}
-      <Footer />
-    </>
+    </section>
   );
 };
 

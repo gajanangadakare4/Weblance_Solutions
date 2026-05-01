@@ -1,127 +1,187 @@
 import React from "react";
+
+import {
+  Sparkles,
+  Search,
+  Lightbulb,
+  Palette,
+  Code2,
+  FlaskConical,
+  Rocket,
+  Handshake,
+  ArrowUpRight,
+} from "lucide-react";
+
 import "../css/Process.css";
 
 const Process = () => {
 
   const steps = [
     {
-      icon: "🔍",
+      icon: <Search size={28} />,
       title: "Discovery",
       desc:
-        "Understanding your business goals, audience, and requirements.",
-      focus: "Clear understanding of your vision",
-      deliverables: "Requirement Document, Project Scope"
+        "We understand your business goals, audience, challenges, and project requirements.",
+      focus: "Business Understanding",
+      deliverables: "Requirement Analysis",
+      gradient: "blue"
     },
+
     {
-      icon: "🧠",
+      icon: <Lightbulb size={28} />,
       title: "Planning",
       desc:
-        "Creating a strategic roadmap and selecting the best technologies.",
-      focus: "Strategic planning & scalability",
-      deliverables: "Project Plan, Timeline"
+        "Creating a strategic roadmap with scalable architecture and execution planning.",
+      focus: "Strategy & Roadmap",
+      deliverables: "Timeline & Planning",
+      gradient: "purple"
     },
+
     {
-      icon: "🎨",
+      icon: <Palette size={28} />,
       title: "Design",
       desc:
-        "Crafting modern UI/UX experiences focused on usability and engagement.",
-      focus: "User-friendly interface design",
-      deliverables: "Wireframes, UI Design"
+        "Crafting intuitive and engaging UI/UX experiences focused on usability.",
+      focus: "Modern User Experience",
+      deliverables: "Wireframes & UI Design",
+      gradient: "pink"
     },
+
     {
-      icon: "💻",
+      icon: <Code2 size={28} />,
       title: "Development",
       desc:
-        "Building fast, scalable, and secure applications using modern technologies.",
-      focus: "Performance & clean code",
-      deliverables: "Frontend + Backend Development"
+        "Building secure, scalable, and high-performance applications using modern technologies.",
+      focus: "Clean & Scalable Code",
+      deliverables: "Frontend + Backend",
+      gradient: "cyan"
     },
+
     {
-      icon: "🧪",
+      icon: <FlaskConical size={28} />,
       title: "Testing",
       desc:
-        "Ensuring smooth functionality, performance, and bug-free experience.",
-      focus: "Quality assurance",
-      deliverables: "QA Reports, Testing Validation"
+        "Ensuring smooth performance, security, responsiveness, and bug-free delivery.",
+      focus: "Quality Assurance",
+      deliverables: "Testing & Validation",
+      gradient: "green"
     },
+
     {
-      icon: "🚀",
+      icon: <Rocket size={28} />,
       title: "Launch",
       desc:
-        "Deploying your project live with optimization and production readiness.",
-      focus: "Smooth production deployment",
-      deliverables: "Live Website / Application"
+        "Deploying optimized applications with production-ready infrastructure and monitoring.",
+      focus: "Smooth Deployment",
+      deliverables: "Live Deployment",
+      gradient: "orange"
     },
+
     {
-      icon: "🤝",
+      icon: <Handshake size={28} />,
       title: "Support",
       desc:
-        "Providing ongoing maintenance, updates, and long-term support.",
-      focus: "Long-term partnership",
-      deliverables: "Maintenance & Support"
+        "Providing continuous updates, optimization, maintenance, and long-term support.",
+      focus: "Long-Term Partnership",
+      deliverables: "Maintenance & Support",
+      gradient: "violet"
     }
   ];
 
   return (
+
     <section className="process-section">
 
-      <div className="container">
+      {/* BACKGROUND EFFECTS */}
+      <div className="process-bg process-bg-1"></div>
+      <div className="process-bg process-bg-2"></div>
 
-        {/* HEADER */}
+      <div className="process-container">
+
+        {/* =========================
+            HEADER
+        ========================= */}
+
         <div className="process-header">
 
-          <h2>Our Development Journey</h2>
+          <span className="process-tag">
+            <Sparkles size={16} />
+            Workflow & Strategy
+          </span>
+
+          <h2>
+            Our Modern Development
+            Process Journey
+          </h2>
 
           <p>
-            A structured workflow designed to ensure quality,
-            efficiency, and successful project delivery.
+            A structured and transparent workflow designed to
+            deliver scalable, high-quality, and business-driven
+            digital solutions efficiently.
           </p>
 
         </div>
 
-        {/* PROCESS STEPPER */}
-        <div className="process-stepper">
+        {/* =========================
+            PROCESS GRID
+        ========================= */}
+
+        <div className="process-grid">
 
           {steps.map((step, index) => (
-            <div className="step-item" key={index}>
 
-              {/* CONNECTING LINE */}
-              {index !== 0 && (
-                <div className="step-line"></div>
-              )}
+            <div
+              className={`process-card ${step.gradient}`}
+              key={index}
+            >
+
+              {/* STEP NUMBER */}
+              <div className="process-number">
+                0{index + 1}
+              </div>
 
               {/* ICON */}
-              <div className="step-icon">
-                <span>{step.icon}</span>
+              <div className="process-icon">
+                {step.icon}
               </div>
 
               {/* CONTENT */}
-              <div className="step-content">
+              <div className="process-content">
 
                 <h3>{step.title}</h3>
 
-                <p>{step.desc}</p>
+                <p>
+                  {step.desc}
+                </p>
 
-                <div className="step-info">
+                {/* INFO */}
+                <div className="process-info">
 
-                  <p>
-                    <strong>Focus:</strong> {step.focus}
-                  </p>
+                  <div className="info-box">
+                    <span>Focus</span>
+                    <h4>{step.focus}</h4>
+                  </div>
 
-                  <p>
-                    <strong>Deliverables:</strong> {step.deliverables}
-                  </p>
+                  <div className="info-box">
+                    <span>Deliverables</span>
+                    <h4>{step.deliverables}</h4>
+                  </div>
 
                 </div>
 
-              </div>
+                {/* BUTTON */}
+                {/* <button className="process-btn">
 
-              {/* STEP NUMBER */}
-              <div className="step-number">
-                {index + 1}
+                  Learn More
+
+                  <ArrowUpRight size={16} />
+
+                </button> */}
+
               </div>
 
             </div>
+
           ))}
 
         </div>

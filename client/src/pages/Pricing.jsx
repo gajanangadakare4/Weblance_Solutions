@@ -1,73 +1,163 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
+import {
+  Sparkles,
+  Globe,
+  TrendingUp,
+  ArrowUpRight,
+  CheckCircle2,
+} from "lucide-react";
+
 import "../css/Pricing.css";
- 
+
 const Pricing = () => {
+
   const navigate = useNavigate();
 
+  const pricingData = [
+    {
+      title: "Website Development",
+      icon: <Globe size={24} />,
+      image:
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+      desc:
+        "Modern websites, business platforms, landing pages, UI/UX design, and scalable e-commerce solutions.",
+      features: [
+        "Responsive Website Design",
+        "Modern UI/UX Experience",
+        "SEO Friendly Structure",
+        "E-Commerce Development",
+      ],
+      route: "/pricing/website",
+      button: "Explore Plans",
+    },
+
+    {
+      title: "Digital Marketing",
+      icon: <TrendingUp size={24} />,
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+      desc:
+        "Performance-driven SEO, paid advertising, branding, and social media strategies for business growth.",
+      features: [
+        "SEO Optimization",
+        "Google & Meta Ads",
+        "Social Media Marketing",
+        "Lead Generation Campaigns",
+      ],
+      route: "/pricing/marketing",
+      button: "Explore Plans",
+    },
+  ];
+
   return (
-    <>
-      <section className="pricing-section">
-        <div className="container">
 
-          {/* HEADER */}
-          <div className="pricing-header">
-            <h2>Our Pricing</h2>
-            <p>Select a service to view detailed pricing plans</p>
-          </div>
+    <section className="pricing-section">
 
-          {/* MAIN CARDS */}
-          <div className="pricing-main-grid">
+      {/* BACKGROUND EFFECTS */}
+      <div className="pricing-bg pricing-bg-1"></div>
+      <div className="pricing-bg pricing-bg-2"></div>
 
-            {/* WEBSITE DEVELOPMENT CARD */}
-            <div
-              className="pricing-main-card"
-              onClick={() => navigate("/pricing/website")}
-              style={{ cursor: "pointer" }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-                alt="Website Development"
-                className="pricing-img"
-              />
+      <div className="pricing-container">
 
-              <div>
-                <h2>🌐 Website Development</h2>
-                <p>
-                  Custom websites, landing pages, UI/UX design & e-commerce solutions.
-                </p>
-                <span className="pricing-link">View Pricing →</span>
-              </div>
-            </div>
+        {/* HEADER */}
+        <div className="pricing-header">
 
-            {/* DIGITAL MARKETING CARD */}
-            <div
-              className="pricing-main-card"
-              onClick={() => navigate("/pricing/marketing")}
-              style={{ cursor: "pointer" }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
-                alt="Digital Marketing"
-                className="pricing-img"
-              />
+          <span className="pricing-tag">
+            <Sparkles size={16} />
+            Flexible Pricing Plans
+          </span>
 
-              <div>
-                <h2>📈 Digital Marketing</h2>
-                <p>
-                  SEO, Google Ads, Social Media Marketing & content strategy services.
-                </p>
-                <span className="pricing-link">View Pricing →</span>
-              </div>
-            </div>
+          <h2>
+            Affordable Solutions
+            For Every Business
+          </h2>
 
-          </div>
+          <p>
+            Choose the perfect service package designed to help
+            your business grow with modern technology,
+            strategic marketing, and scalable digital solutions.
+          </p>
 
         </div>
-      </section>
 
-       
-    </>
+        {/* PRICING GRID */}
+        <div className="pricing-grid">
+
+          {pricingData.map((item, index) => (
+
+            <div
+              className="pricing-card"
+              key={index}
+            >
+
+              {/* IMAGE */}
+              <div className="pricing-image">
+
+                <img
+                  src={item.image}
+                  alt={item.title}
+                />
+
+                <div className="pricing-overlay"></div>
+
+                <div className="pricing-icon">
+                  {item.icon}
+                </div>
+
+              </div>
+
+              {/* CONTENT */}
+              <div className="pricing-content">
+
+                <h3>{item.title}</h3>
+
+                <p>{item.desc}</p>
+
+                {/* FEATURES */}
+                <div className="pricing-features">
+
+                  {item.features.map((feature, i) => (
+
+                    <div
+                      className="pricing-feature"
+                      key={i}
+                    >
+
+                      <CheckCircle2 size={18} />
+
+                      <span>{feature}</span>
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+                {/* BUTTON */}
+                <button
+                  className="pricing-btn"
+                  onClick={() => navigate(item.route)}
+                >
+
+                  {item.button}
+
+                  <ArrowUpRight size={18} />
+
+                </button>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+
+    </section>
   );
 };
 

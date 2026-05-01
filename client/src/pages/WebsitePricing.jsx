@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import "../css/WebsitePricing.css";
-import Footer from "../layouts/Footer"; // ✅ ADD FOOTER IMPORT
+import Footer from "../layouts/Footer";
 
-// Icons
 import { RiRobot2Fill } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const WebsitePricing = () => {
-
-        const navigate = useNavigate();
-
+  const navigate = useNavigate();
+  const [openChat, setOpenChat] = useState(false);
 
   const plans = [
     {
       name: "Basic Website",
       price: "₹8,999",
+      tag: "Starter",
       features: [
         "1–3 Pages Website",
         "Mobile Responsive Design",
-        "Basic UI Design",
+        "Clean UI Design",
         "Contact Form",
         "Delivery: 3–5 Days"
       ]
@@ -27,6 +26,8 @@ const WebsitePricing = () => {
     {
       name: "Business Website",
       price: "₹15,000",
+      tag: "Most Popular",
+      highlight: true,
       features: [
         "5–8 Pages Website",
         "Modern UI/UX Design",
@@ -39,8 +40,9 @@ const WebsitePricing = () => {
     {
       name: "Premium Website",
       price: "₹25,000+",
+      tag: "Advanced",
       features: [
-        "Custom Design Website",
+        "Custom UI/UX Design",
         "Advanced Animations",
         "Admin Panel (Optional)",
         "SEO + Performance Optimization",
@@ -51,8 +53,9 @@ const WebsitePricing = () => {
     {
       name: "E-Commerce Website",
       price: "₹35,000+",
+      tag: "Enterprise",
       features: [
-        "Product Listing System",
+        "Product Management System",
         "Cart & Checkout System",
         "Payment Gateway Integration",
         "Admin Dashboard",
@@ -62,26 +65,37 @@ const WebsitePricing = () => {
     }
   ];
 
-  // simple chat state (optional AI like footer)
-  const [openChat, setOpenChat] = useState(false);
-
   return (
     <>
-      <section className="pricing-details-section">
+      <section className="pricing-section">
         <div className="container">
 
           {/* HEADER */}
-          <div className="pricing-details-header">
-            <h2>🌐 Website Development Pricing</h2>
-            <p>Choose the perfect plan for your business website</p>
+          <div className="pricing-header">
+            <span className="pricing-badge">Website Solutions</span>
+
+            <h2>Flexible Pricing for Every Business</h2>
+
+            <p>
+              Choose a plan that fits your needs — scalable, modern, and performance-driven websites.
+            </p>
           </div>
 
           {/* GRID */}
-          <div className="pricing-details-grid">
+          <div className="pricing-grid">
 
             {plans.map((plan, index) => (
-              <div className="pricing-details-card" key={index}>
+              <div
+                className={`pricing-card ${plan.highlight ? "highlight" : ""}`}
+                key={index}
+              >
+
+                {plan.tag && (
+                  <span className="plan-tag">{plan.tag}</span>
+                )}
+
                 <h3>{plan.name}</h3>
+
                 <h2 className="price">{plan.price}</h2>
 
                 <ul>
@@ -90,12 +104,13 @@ const WebsitePricing = () => {
                   ))}
                 </ul>
 
-                <button 
-  className="pricing-btn"
-  onClick={() => navigate("/enquiry")}
->
-  Request Proposal
-</button>
+                <button
+                  className="pricing-btn"
+                  onClick={() => navigate("/enquiry")}
+                >
+                  Get Started
+                </button>
+
               </div>
             ))}
 
@@ -104,13 +119,11 @@ const WebsitePricing = () => {
         </div>
       </section>
 
-      {/* ✅ FOOTER ADDED HERE */}
       <Footer />
 
-      {/* FLOATING BUTTONS (optional reuse) */}
+      {/* FLOATING ACTION BUTTONS */}
       <div className="floating-buttons">
 
-        {/* WhatsApp */}
         <a
           href="https://wa.me/919876543210"
           target="_blank"
@@ -120,7 +133,6 @@ const WebsitePricing = () => {
           <FaWhatsapp />
         </a>
 
-        {/* AI CHAT BUTTON */}
         <button
           className="fab chat"
           onClick={() => setOpenChat(!openChat)}

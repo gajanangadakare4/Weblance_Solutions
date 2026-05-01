@@ -1,73 +1,133 @@
 import React from "react";
+import {
+  Globe,
+  Rocket,
+  BadgeCheck,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
+
 import logo from "../assets/logo-bg.png";
 import "../css/About.css";
 
+const features = [
+  {
+    icon: <Rocket size={22} />,
+    title: "5+ Years Experience",
+    desc: "Modern web solutions with real industry expertise.",
+  },
+  {
+    icon: <BadgeCheck size={22} />,
+    title: "Client-Focused Strategy",
+    desc: "Every project aligned with your business growth.",
+  },
+  {
+    icon: <Globe size={22} />,
+    title: "Scalable Digital Systems",
+    desc: "Built for startups, brands, and future expansion.",
+  },
+];
+
 const About = () => {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about-section">
 
-      {/* LEFT - IMAGE */}
-      <div className="about-left">
-        <img src={logo} alt="Weblance Solutions" />
-      </div>
+      {/* BACKGROUND EFFECTS */}
+      <div className="about-bg-circle about-circle-1"></div>
+      <div className="about-bg-circle about-circle-2"></div>
 
-      {/* RIGHT - CONTENT */}
-      <div className="about-right">
+      <div className="about-container">
 
-        <h2>
-          About <span>Weblance Solutions</span>
-        </h2>
+        {/* LEFT CONTENT */}
+        <div className="about-content">
 
-        <p>
-          Weblance Solutions is a results-driven Web Development and Digital Marketing agency
-          focused on helping businesses build a strong and impactful online presence.
-          We combine creative design, modern technology, and strategic thinking to
-          deliver solutions that generate real business growth.
-        </p>
+          <span className="about-tag">
+            <Sparkles size={16} />
+            About Weblance Solutions
+          </span>
 
-        <p>
-          Founded by <strong>Mr. Gajanan Gadakare</strong>, Weblance Solutions brings over
-          5 years of hands-on experience in delivering high-quality digital solutions
-          across various industries. With a passion for innovation, the company is
-          committed to building products and services that create meaningful impact.
-        </p>
+          <h2>
+            Building Modern Digital
+            Experiences That Drive
+            Business Growth
+          </h2>
 
-        <p>
-          As a growing digital agency, we specialize in developing customized
-          solutions tailored to each client’s unique requirements. From responsive
-          websites to performance-driven marketing strategies, our goal is to help
-          businesses scale efficiently in today’s competitive digital world.
-        </p>
+          <p className="about-text">
+            Weblance Solutions is a creative Web Development and
+            Digital Marketing agency delivering premium websites,
+            scalable applications, branding, and growth-driven
+            digital strategies for modern businesses.
+          </p>
 
-        <p>
-          At Weblance Solutions, we believe in building long-term partnerships by providing
-          reliable, affordable, and result-oriented services that truly add value
-          to our clients.
-        </p>
+          <p className="about-text">
+            Founded by <strong>Mr. Gajanan Gadakare</strong>,
+            we combine innovation, creativity, and technology
+            to help startups and brands create a powerful online presence.
+          </p>
 
-        {/* FEATURES */}
-        <div className="about-features">
+          {/* FEATURES */}
+          <div className="about-features">
+            {features.map((item, index) => (
+              <div className="feature-card" key={index}>
 
-          <div className="feature">
-            <h4>5+ Years Experience</h4>
-            <p>Strong industry knowledge and expertise</p>
+                <div className="feature-icon">
+                  {item.icon}
+                </div>
+
+                <div>
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
+                </div>
+
+              </div>
+            ))}
           </div>
 
-          <div className="feature">
-            <h4>Client-Focused Approach</h4>
-            <p>Solutions designed around your goals</p>
-          </div>
+          {/* BUTTONS */}
+          {/* <div className="about-buttons">
 
-          <div className="feature">
-            <h4>Affordable & Scalable</h4>
-            <p>Ideal for startups and growing businesses</p>
-          </div>
+            <button className="about-btn primary-btn">
+              Explore More
+              <ArrowRight size={18} />
+            </button>
+
+            <button className="about-btn secondary-btn">
+              View Services
+            </button>
+
+          </div> */}
 
         </div>
 
-        <button className="about-btn">
-          Learn More
-        </button>
+        {/* RIGHT IMAGE SIDE */}
+        <div className="about-image">
+
+          <div className="image-wrapper">
+
+            <div className="image-glow"></div>
+
+            <div className="image-box">
+              <img
+                src={logo}
+                alt="Weblance Solutions"
+              />
+            </div>
+
+            {/* FLOATING EXPERIENCE CARD */}
+            <div className="experience-card">
+              <h3>5+</h3>
+              <p>Years Experience</p>
+            </div>
+
+            {/* FLOATING PROJECT CARD */}
+            <div className="project-card">
+              <h4>100+</h4>
+              <p>Projects Delivered</p>
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 

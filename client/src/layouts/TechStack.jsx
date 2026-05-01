@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  Sparkles,
+  Code2,
+  Megaphone,
+  ArrowUpRight,
+} from "lucide-react";
 
 import html from "../assets/html.png";
 import css from "../assets/css.jpg";
@@ -30,48 +36,55 @@ const TechStack = () => {
   const devStack = [
     {
       name: "HTML5",
-      desc: "Structure and semantic layout for modern websites.",
+      desc: "Modern semantic structure for scalable websites.",
       img: html
     },
+
     {
       name: "CSS3",
-      desc: "Responsive and visually appealing designs.",
+      desc: "Responsive and visually engaging user interfaces.",
       img: css
     },
+
     {
       name: "JavaScript",
-      desc: "Dynamic and interactive web functionality.",
+      desc: "Dynamic and interactive frontend experiences.",
       img: js
     },
+
     {
       name: "React.js",
-      desc: "Modern frontend development for fast UI.",
+      desc: "Fast and modern frontend application development.",
       img: reactImg
     },
+
     {
       name: "Node.js",
-      desc: "Backend development for scalable applications.",
+      desc: "Powerful backend architecture for scalable systems.",
       img: node
     },
+
     {
       name: "MongoDB",
-      desc: "Flexible and scalable NoSQL database.",
+      desc: "Flexible and scalable NoSQL database solutions.",
       img: mongo
     },
+
     {
       name: "Java",
-      desc: "Backend development for enterprise-level applications.",
+      desc: "Enterprise-grade backend application development.",
       img: java
     },
+
     {
       name: "Python",
-      desc:
-        "A versatile programming language used for web development, automation, data science, AI, and backend applications.",
+      desc: "Versatile language for automation, AI, and backend systems.",
       img: python
     },
+
     {
       name: "Figma",
-      desc: "UI/UX design and prototyping tools.",
+      desc: "Modern UI/UX design and prototyping workflows.",
       img: figma
     }
   ];
@@ -80,122 +93,199 @@ const TechStack = () => {
   const marketingStack = [
     {
       name: "SEO Tools",
-      desc: "Optimize websites for better search engine rankings.",
+      desc: "Improve rankings and grow organic visibility.",
       img: seo
     },
+
     {
       name: "Google Analytics",
-      desc: "Track and analyze website traffic and performance.",
+      desc: "Track performance and user engagement insights.",
       img: analytics
     },
+
     {
       name: "Google Ads",
-      desc: "Run high-converting paid ad campaigns.",
+      desc: "Run high-converting paid advertising campaigns.",
       img: ads
     },
+
     {
       name: "Meta Ads",
-      desc: "Facebook & Instagram ad campaigns for lead generation.",
+      desc: "Targeted Facebook & Instagram marketing campaigns.",
       img: metaAds
     },
+
     {
       name: "SEMrush",
-      desc:
-        "All-in-one digital marketing toolkit for SEO, PPC, and competitor analysis.",
+      desc: "Advanced SEO and competitor analysis platform.",
       img: semrush
     },
+
     {
       name: "Ahrefs",
-      desc:
-        "Advanced SEO platform for backlinks, keyword research, and audits.",
+      desc: "Backlink research and SEO optimization tools.",
       img: ahrefs
     },
+
     {
       name: "Mailchimp",
-      desc:
-        "Email marketing platform for campaigns, automation, and newsletters.",
+      desc: "Email marketing automation and campaign management.",
       img: mailchimp
     },
+
     {
       name: "Canva",
-      desc:
-        "Create engaging social media graphics, ads, and marketing content.",
+      desc: "Creative designs for social and marketing content.",
       img: canva
     },
+
     {
       name: "Hootsuite",
-      desc:
-        "Manage and schedule social media campaigns across multiple platforms.",
+      desc: "Social media management and scheduling platform.",
       img: hootsuite
     },
+
     {
       name: "HubSpot",
-      desc:
-        "CRM and marketing automation tool for inbound marketing strategies.",
+      desc: "CRM and inbound marketing automation platform.",
       img: hubspot
     }
   ];
 
   return (
+
     <section className="tech-section">
 
-      <div className="container">
+      {/* BACKGROUND EFFECTS */}
+      <div className="tech-bg tech-bg-1"></div>
+      <div className="tech-bg tech-bg-2"></div>
+
+      <div className="tech-container">
 
         {/* HEADER */}
         <div className="tech-header">
 
-          <h2>Our Tech Stack</h2>
+          <span className="tech-tag">
+            <Sparkles size={16} />
+            Technologies & Tools
+          </span>
+
+          <h2>
+            Modern Tech Stack
+            Powering Digital Innovation
+          </h2>
 
           <p>
-            We use modern technologies and tools to build scalable,
-            secure, and high-performance digital solutions.
+            We leverage modern technologies, frameworks,
+            and marketing tools to deliver scalable,
+            high-performance, and future-ready digital solutions.
           </p>
 
         </div>
 
         {/* DEVELOPMENT STACK */}
-        <h3 className="tech-subtitle">
-          Development Technologies
-        </h3>
+        <div className="stack-section">
 
-        <div className="tech-grid">
+          <div className="stack-title">
 
-          {devStack.map((item, index) => (
-            <div className="tech-card" key={index}>
+            <div className="stack-icon">
+              <Code2 size={22} />
+            </div>
 
-              <div className="tech-icon">
-                <img src={item.img} alt={item.name} />
+            <div>
+              <h3>Development Technologies</h3>
+              <p>Frontend, Backend & UI/UX Technologies</p>
+            </div>
+
+          </div>
+
+          <div className="tech-grid">
+
+            {devStack.map((item, index) => (
+
+              <div
+                className="tech-card"
+                key={index}
+              >
+
+                <div className="tech-image">
+                  <img
+                    src={item.img}
+                    alt={item.name}
+                  />
+                </div>
+
+                <div className="tech-content">
+
+                  <h4>{item.name}</h4>
+
+                  <p>{item.desc}</p>
+
+                  {/* <button className="tech-btn">
+                    Explore
+                    <ArrowUpRight size={16} />
+                  </button> */}
+
+                </div>
+
               </div>
 
-              <h3>{item.name}</h3>
+            ))}
 
-              <p>{item.desc}</p>
-
-            </div>
-          ))}
+          </div>
 
         </div>
 
-        {/* DIGITAL MARKETING STACK */}
-        <h3 className="tech-subtitle">
-          Digital Marketing Tools
-        </h3>
+        {/* MARKETING STACK */}
+        <div className="stack-section">
 
-        <div className="tech-grid">
+          <div className="stack-title">
 
-          {marketingStack.map((item, index) => (
-            <div className="tech-card" key={index}>
+            <div className="stack-icon">
+              <Megaphone size={22} />
+            </div>
 
-              <div className="tech-icon">
-                <img src={item.img} alt={item.name} />
+            <div>
+              <h3>Digital Marketing Tools</h3>
+              <p>Analytics, SEO & Marketing Platforms</p>
+            </div>
+
+          </div>
+
+          <div className="tech-grid">
+
+            {marketingStack.map((item, index) => (
+
+              <div
+                className="tech-card"
+                key={index}
+              >
+
+                <div className="tech-image">
+                  <img
+                    src={item.img}
+                    alt={item.name}
+                  />
+                </div>
+
+                <div className="tech-content">
+
+                  <h4>{item.name}</h4>
+
+                  <p>{item.desc}</p>
+
+                  {/* <button className="tech-btn">
+                    Explore
+                    <ArrowUpRight size={16} />
+                  </button> */}
+
+                </div>
+
               </div>
 
-              <h3>{item.name}</h3>
+            ))}
 
-              <p>{item.desc}</p>
-
-            </div>
-          ))}
+          </div>
 
         </div>
 

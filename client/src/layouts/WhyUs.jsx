@@ -1,79 +1,165 @@
 import React from "react";
+
+import {
+  Sparkles,
+  ShieldCheck,
+  Rocket,
+  Users,
+  BadgeDollarSign,
+  Clock3,
+  Layers3,
+  Headphones,
+  ArrowUpRight,
+} from "lucide-react";
+
 import "../css/WhyUs.css";
 
 const WhyUs = () => {
 
   const reasons = [
     {
-      title: "Experienced Team 👨‍💻",
+      icon: <Users size={28} />,
+      title: "Experienced Team",
       desc:
-        "Our experienced team delivers reliable, high-quality digital solutions tailored to your business needs."
+        "Our skilled professionals deliver modern, scalable, and reliable digital solutions tailored to your business goals.",
+      highlight: "Expert-led execution"
     },
+
     {
-      title: "Client-Centric Approach 🤝",
+      icon: <ShieldCheck size={28} />,
+      title: "Client-Centric Approach",
       desc:
-        "We understand your business goals and create customized solutions aligned with your vision and objectives."
+        "We understand your vision deeply and build customized solutions that align perfectly with your objectives.",
+      highlight: "Your success comes first"
     },
+
     {
-      title: "Result-Oriented Work 📈",
+      icon: <Rocket size={28} />,
+      title: "Result-Driven Solutions",
       desc:
-        "We focus on delivering measurable results that help improve growth, engagement, and business performance."
+        "We focus on measurable growth, better engagement, and high-performance digital experiences.",
+      highlight: "Growth-focused strategy"
     },
+
     {
-      title: "Affordable Pricing 💰",
+      icon: <BadgeDollarSign size={28} />,
+      title: "Affordable Pricing",
       desc:
-        "We provide cost-effective solutions without compromising quality, making us ideal for startups and growing businesses."
+        "Get premium-quality services with flexible and cost-effective pricing for startups and businesses.",
+      highlight: "High value, low cost"
     },
+
     {
-      title: "End-to-End Solutions 🔄",
+      icon: <Layers3 size={28} />,
+      title: "End-to-End Services",
       desc:
-        "From development to digital marketing, we handle complete solutions so you can focus on your business."
+        "From web development to digital marketing, we handle complete digital transformation under one roof.",
+      highlight: "Complete digital ecosystem"
     },
+
     {
-      title: "On-Time Delivery ⏱️",
+      icon: <Clock3 size={28} />,
+      title: "On-Time Delivery",
       desc:
-        "We value your time and ensure every project is completed and delivered within the committed timeline."
+        "We follow a streamlined workflow to ensure every project is delivered on schedule without compromising quality.",
+      highlight: "Fast & reliable delivery"
     },
+
     {
-      title: "Modern Technologies 🚀",
+      icon: <Sparkles size={28} />,
+      title: "Modern Technologies",
       desc:
-        "We use the latest technologies and industry best practices to build scalable, secure, and future-ready solutions."
+        "We leverage the latest technologies and best practices to create future-ready digital products.",
+      highlight: "Innovation-driven solutions"
     },
+
     {
-      title: "Continuous Support 📞",
+      icon: <Headphones size={28} />,
+      title: "Continuous Support",
       desc:
-        "Our partnership continues after delivery with ongoing support, maintenance, and improvements."
+        "Our partnership continues after launch with ongoing support, updates, optimization, and maintenance.",
+      highlight: "Long-term partnership"
     }
   ];
 
   return (
+
     <section className="whyus-section">
 
-      <div className="container">
+      {/* BACKGROUND EFFECTS */}
+      <div className="whyus-bg whyus-bg-1"></div>
+      <div className="whyus-bg whyus-bg-2"></div>
+
+      <div className="whyus-container">
 
         {/* HEADER */}
         <div className="whyus-header">
 
-          <h2>Why Choose Us</h2>
+          <span className="whyus-tag">
+            <Sparkles size={16} />
+            Why Businesses Trust Us
+          </span>
+
+          <h2>
+            Delivering Digital Excellence
+            Through Innovation & Strategy
+          </h2>
 
           <p>
-            We combine expertise, innovation, and dedication to deliver
-            digital solutions that create real value for your business.
+            We combine creativity, technology, and strategy to deliver
+            impactful digital solutions that help businesses grow,
+            scale, and succeed in the competitive digital landscape.
           </p>
 
         </div>
 
-        {/* CARDS */}
+        {/* GRID */}
         <div className="whyus-grid">
 
           {reasons.map((item, index) => (
-            <div className="whyus-card" key={index}>
 
-              <h3>{item.title}</h3>
+            <div
+              className="whyus-card"
+              key={index}
+            >
 
-              <p>{item.desc}</p>
+              {/* TOP */}
+              <div className="whyus-top">
+
+                <div className="whyus-icon">
+                  {item.icon}
+                </div>
+
+                <span className="whyus-highlight">
+                  {item.highlight}
+                </span>
+
+              </div>
+
+              {/* CONTENT */}
+              <div className="whyus-content">
+
+                <h3>{item.title}</h3>
+
+                <p>{item.desc}</p>
+
+                {/* <button className="whyus-btn">
+
+                  Learn More
+
+                  <ArrowUpRight size={16} />
+
+                </button> */}
+
+              </div>
+
+              {/* CARD NUMBER */}
+              <div className="whyus-number">
+                0{index + 1}
+              </div>
 
             </div>
+
           ))}
 
         </div>

@@ -1,149 +1,388 @@
-/* MAIN CONTAINER */
-.header-container {
+/* =========================
+   HEADER SECTION
+========================= */
+
+.header-section {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 120px 8%;
+  background: #0f172a;
   overflow: hidden;
-}
-
-/* BACKGROUND IMAGE */
-.header-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.6s ease, filter 0.6s ease;
-}
-
-/* ZOOM + BLUR EFFECT */
-.header-container:hover .header-bg {
-  transform: scale(1.1);
-  filter: blur(2px) brightness(0.8);
-}
-
-/* ---------------- WATER DROP RIPPLE ---------------- */
-
-/* ripple circle */
-.header-container::after {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  left: var(--x);
-  top: var(--y);
-  transform: translate(-50%, -50%) scale(0);
-  background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 60%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* animate ripple */
-.header-container:hover::after {
-  animation: waterDrop 0.8s ease-out;
-}
-
-/* ripple animation */
-@keyframes waterDrop {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(3);
-    opacity: 0;
-  }
-}
-
-/* ---------------- OLD GRID RIPPLE (OPTIONAL KEEP) ---------------- */
-.header-bg::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 10%);
-  background-size: 25px 25px;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.header-container:hover .header-bg::after {
-  opacity: 1;
-  animation: ripple 6s linear infinite;
-}
-
-@keyframes ripple {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(50px, 50px);
-  }
-}
-
-/* ---------------- CONTENT ---------------- */
-.header-content {
-  position: relative;
-  z-index: 3;
-  height: 100%;
+  color: #fff;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: #fff;
-  text-align: center;
-  padding: 0 20px;
 }
 
-.header-content h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  color: rgb(255, 248, 248) ;
-}
+/* =========================
+   BACKGROUND EFFECTS
+========================= */
 
-.header-content p {
-  font-size: 18px;
-  max-width: 600px;
-  margin-bottom: 30px;
-    color: rgb(255, 248, 248) ;
-
-}
-
-/* BUTTON */
-.cta-btn {
-  padding: 12px 25px;
- background: linear-gradient(135deg, #252020, #0284c7);  color: #fff;
-  border: none;
-  color: #fff;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.cta-btn:hover {
-  background: #003bb5;
-  transform: translateY(-3px);
-}
-
-/* DARK OVERLAY */
-.header-container::before {
+.header-section::before,
+.header-section::after {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
   z-index: 1;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+.header-section::before {
+  width: 350px;
+  height: 350px;
+  background: #3b82f6;
+  top: -100px;
+  left: -100px;
+}
+
+.header-section::after {
+  width: 300px;
+  height: 300px;
+  background: #9333ea;
+  bottom: -100px;
+  right: -80px;
+}
+
+/* =========================
+   BACKGROUND LOGO
+========================= */
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
+  opacity: 0.04;
+  z-index: 0;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.header-left {
+  flex: 1;
+  max-width: 650px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.header-left h1 {
+  font-size: 54px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #cbd5e1;
+  max-width: 700px;
+}
+
+.header-left p {
+  max-width: 650px;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+  color: #cbd5e1;
+}
+
+/* =========================
+   HERO POINTS
+========================= */
+
+.hero-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.hero-point {
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.hero-point:hover {
+  transform: translateY(-6px);
+  border-color: #3b82f6;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+}
+
+/* =========================
+   RIGHT FORM
+========================= */
+
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-form {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  padding: 40px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* =========================
+   MOUSE GLOW EFFECT
+========================= */
+
+.hero-form::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.18),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-form * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   FORM TITLE
+========================= */
+
+.hero-form h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #f8fafc;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-group select {
+  color: #cbd5e1;
+}
+
+.form-group option {
+  background: #0f172a;
+  color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
+.error {
+  display: block;
+  margin-top: 8px;
+  color: #f87171;
+  font-size: 13px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.hero-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #9333ea
+  );
+
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+}
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+.success-msg {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 15px;
+  color: #4ade80;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+
+  .header-wrapper {
+    gap: 50px;
+  }
+
+  .header-left h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .header-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-left {
+    max-width: 100%;
+  }
+
+  .header-left p {
+    margin-inline: auto;
+  }
+
+  .header-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-points {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
-  .header-content h1 {
+
+  .header-section {
+    padding: 100px 6%;
+  }
+
+  .header-left h1 {
+    font-size: 42px;
+  }
+
+  .hero-form {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .header-section {
+    padding: 90px 6%;
+  }
+
+  .header-left h1 {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .header-left p {
+    font-size: 16px;
+  }
+
+  .hero-form {
+    padding: 24px;
+  }
+
+  .hero-form h2 {
     font-size: 28px;
   }
 
-  .header-content p {
-    font-size: 14px;
+  .hero-point {
+    padding: 16px;
   }
 }
