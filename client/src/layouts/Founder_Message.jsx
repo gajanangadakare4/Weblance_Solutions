@@ -106,10 +106,10 @@ const Founder = () => {
               <span>Founder & CTO, Weblance Solutions</span>
             </div>
 
-            <button className="founder-btn">
+            {/* <button className="founder-btn">
               Explore Company
               <ArrowRight size={18} />
-            </button>
+            </button> */}
 
           </div>
 

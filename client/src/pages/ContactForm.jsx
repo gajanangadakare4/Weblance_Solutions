@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/ContactForm.css";
+import Footer from "../layouts/Footer.jsx";
 
 const ContactForm = () => {
   const initialState = {
@@ -21,7 +22,6 @@ const ContactForm = () => {
       [e.target.name]: e.target.value
     }));
 
-    // remove error on typing (better UX)
     setErrors((prev) => ({
       ...prev,
       [e.target.name]: ""
@@ -71,117 +71,109 @@ const ContactForm = () => {
       setFormData(initialState);
       setErrors({});
     } catch (err) {
-      console.error("Submission error:", err);
+      console.error(err);
     } finally {
       setLoading(false);
-
       setTimeout(() => setSubmitted(false), 3500);
     }
   };
 
   return (
-    <section className="enquiry-section">
+    <>
+      {/* FORM SECTION */}
+      <section className="enquiry-section">
+        <div className="enquiry-container">
 
-      <div className="enquiry-container">
+          <div className="enquiry-header">
+            <h2>Start Your Project</h2>
+            <p>Share your requirements — we’ll craft a solution tailored to your business.</p>
+          </div>
 
-        {/* HEADER */}
-        <div className="enquiry-header">
-          <h2>Start Your Project</h2>
-          <p>
-            Share your requirements — we’ll craft a solution tailored to your business.
-          </p>
+          <form className="enquiry-form" onSubmit={handleSubmit}>
+
+            <div className="form-grid">
+
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                {errors.name && <span className="error">{errors.name}</span>}
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && <span className="error">{errors.email}</span>}
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+                {errors.phone && <span className="error">{errors.phone}</span>}
+              </div>
+
+              <div className="form-group">
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                >
+                  <option value="">Select Service</option>
+                  <option>Website Development</option>
+                  <option>UI/UX Design</option>
+                  <option>E-Commerce Development</option>
+                  <option>SEO Optimization</option>
+                  <option>Digital Marketing</option>
+                  <option>Mobile App Development</option>
+                </select>
+                {errors.service && <span className="error">{errors.service}</span>}
+              </div>
+
+            </div>
+
+            <div className="form-group full">
+              <textarea
+                name="message"
+                placeholder="Tell us about your project..."
+                rows="5"
+                value={formData.message}
+                onChange={handleChange}
+              />
+              {errors.message && <span className="error">{errors.message}</span>}
+            </div>
+
+            <button type="submit" className="submit-btn" disabled={loading}>
+              {loading ? "Submitting..." : "Send Enquiry"}
+            </button>
+
+            {submitted && (
+              <div className="success-msg">
+                ✔ Your enquiry has been submitted successfully!
+              </div>
+            )}
+
+          </form>
+
         </div>
+      </section>
 
-        {/* FORM */}
-        <form className="enquiry-form" onSubmit={handleSubmit}>
-
-          <div className="form-grid">
-
-            {/* NAME */}
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              {errors.name && <span className="error">{errors.name}</span>}
-            </div>
-
-            {/* EMAIL */}
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && <span className="error">{errors.email}</span>}
-            </div>
-
-            {/* PHONE */}
-            <div className="form-group">
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              {errors.phone && <span className="error">{errors.phone}</span>}
-            </div>
-
-            {/* SERVICE */}
-            <div className="form-group">
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-              >
-                <option value="">Select Service</option>
-                <option>Website Development</option>
-                <option>UI/UX Design</option>
-                <option>E-Commerce Development</option>
-                <option>SEO Optimization</option>
-                <option>Digital Marketing</option>
-                <option>Mobile App Development</option>
-              </select>
-              {errors.service && <span className="error">{errors.service}</span>}
-            </div>
-
-          </div>
-
-          {/* MESSAGE */}
-          <div className="form-group full">
-            <textarea
-              name="message"
-              placeholder="Tell us about your project..."
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-            />
-            {errors.message && <span className="error">{errors.message}</span>}
-          </div>
-
-          {/* BUTTON */}
-          <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? "Submitting..." : "Send Enquiry"}
-          </button>
-
-          {/* SUCCESS */}
-          {submitted && (
-            <div className="success-msg">
-              ✔ Your enquiry has been submitted successfully!
-            </div>
-          )}
-
-        </form>
-
-      </div>
-
-    </section>
+      {/* FOOTER BELOW FORM (IMPORTANT FIX) */}
+      <Footer />
+    </>
   );
 };
 

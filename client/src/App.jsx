@@ -52,7 +52,7 @@ const HomePage = () => {
       </section>
 
       <FAQ />
-      <EnquiryForm />
+      {/* <EnquiryForm /> */}
       <Address />
       <Footer />
     </>

@@ -121,7 +121,7 @@ const About = () => {
 
             {/* FLOATING PROJECT CARD */}
             <div className="project-card">
-              <h4>100+</h4>
+              <h4>50+</h4>
               <p>Projects Delivered</p>
             </div>
 

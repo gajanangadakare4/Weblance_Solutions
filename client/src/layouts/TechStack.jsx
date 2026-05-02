@@ -3,8 +3,14 @@ import {
   Sparkles,
   Code2,
   Megaphone,
-  ArrowUpRight,
 } from "lucide-react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import html from "../assets/html.png";
 import css from "../assets/css.jpg";
@@ -16,7 +22,6 @@ import figma from "../assets/figma.png";
 import java from "../assets/java.png";
 import python from "../assets/python.jpg";
 
-/* DIGITAL MARKETING TOOLS */
 import seo from "../assets/seo.jpg";
 import analytics from "../assets/google-analytics.jpg";
 import ads from "../assets/google-ads.png";
@@ -32,265 +37,138 @@ import "../css/TechStack.css";
 
 const TechStack = () => {
 
-  /* DEVELOPMENT STACK */
   const devStack = [
-    {
-      name: "HTML5",
-      desc: "Modern semantic structure for scalable websites.",
-      img: html
-    },
-
-    {
-      name: "CSS3",
-      desc: "Responsive and visually engaging user interfaces.",
-      img: css
-    },
-
-    {
-      name: "JavaScript",
-      desc: "Dynamic and interactive frontend experiences.",
-      img: js
-    },
-
-    {
-      name: "React.js",
-      desc: "Fast and modern frontend application development.",
-      img: reactImg
-    },
-
-    {
-      name: "Node.js",
-      desc: "Powerful backend architecture for scalable systems.",
-      img: node
-    },
-
-    {
-      name: "MongoDB",
-      desc: "Flexible and scalable NoSQL database solutions.",
-      img: mongo
-    },
-
-    {
-      name: "Java",
-      desc: "Enterprise-grade backend application development.",
-      img: java
-    },
-
-    {
-      name: "Python",
-      desc: "Versatile language for automation, AI, and backend systems.",
-      img: python
-    },
-
-    {
-      name: "Figma",
-      desc: "Modern UI/UX design and prototyping workflows.",
-      img: figma
-    }
+    { name: "HTML5", desc: "Modern semantic structure for scalable websites.", img: html },
+    { name: "CSS3", desc: "Responsive and visually engaging user interfaces.", img: css },
+    { name: "JavaScript", desc: "Dynamic frontend experiences.", img: js },
+    { name: "React.js", desc: "Fast UI development library.", img: reactImg },
+    { name: "Node.js", desc: "Scalable backend systems.", img: node },
+    { name: "MongoDB", desc: "NoSQL database solution.", img: mongo },
+    { name: "Java", desc: "Enterprise backend development.", img: java },
+    { name: "Python", desc: "AI, automation & backend.", img: python },
+    { name: "Figma", desc: "UI/UX design tool.", img: figma }
   ];
 
-  /* MARKETING STACK */
   const marketingStack = [
-    {
-      name: "SEO Tools",
-      desc: "Improve rankings and grow organic visibility.",
-      img: seo
-    },
-
-    {
-      name: "Google Analytics",
-      desc: "Track performance and user engagement insights.",
-      img: analytics
-    },
-
-    {
-      name: "Google Ads",
-      desc: "Run high-converting paid advertising campaigns.",
-      img: ads
-    },
-
-    {
-      name: "Meta Ads",
-      desc: "Targeted Facebook & Instagram marketing campaigns.",
-      img: metaAds
-    },
-
-    {
-      name: "SEMrush",
-      desc: "Advanced SEO and competitor analysis platform.",
-      img: semrush
-    },
-
-    {
-      name: "Ahrefs",
-      desc: "Backlink research and SEO optimization tools.",
-      img: ahrefs
-    },
-
-    {
-      name: "Mailchimp",
-      desc: "Email marketing automation and campaign management.",
-      img: mailchimp
-    },
-
-    {
-      name: "Canva",
-      desc: "Creative designs for social and marketing content.",
-      img: canva
-    },
-
-    {
-      name: "Hootsuite",
-      desc: "Social media management and scheduling platform.",
-      img: hootsuite
-    },
-
-    {
-      name: "HubSpot",
-      desc: "CRM and inbound marketing automation platform.",
-      img: hubspot
-    }
+    { name: "SEO Tools", desc: "Rank improvement tools.", img: seo },
+    { name: "Google Analytics", desc: "Traffic tracking.", img: analytics },
+    { name: "Google Ads", desc: "Paid marketing campaigns.", img: ads },
+    { name: "Meta Ads", desc: "Facebook & Instagram ads.", img: metaAds },
+    { name: "SEMrush", desc: "SEO research platform.", img: semrush },
+    { name: "Ahrefs", desc: "Backlink analysis tool.", img: ahrefs },
+    { name: "Mailchimp", desc: "Email marketing automation.", img: mailchimp },
+    { name: "Canva", desc: "Design creation tool.", img: canva },
+    { name: "Hootsuite", desc: "Social media scheduler.", img: hootsuite },
+    { name: "HubSpot", desc: "CRM platform.", img: hubspot }
   ];
+
+  const renderSlides = (data) =>
+    data.map((item, index) => (
+      <SwiperSlide key={index}>
+        <div className="techstack-card">
+
+          <div className="techstack-card-image">
+            <img src={item.img} alt={item.name} />
+          </div>
+
+          <div className="techstack-card-content">
+            <h4>{item.name}</h4>
+            <p>{item.desc}</p>
+          </div>
+
+        </div>
+      </SwiperSlide>
+    ));
 
   return (
+    <section className="techstack-section">
 
-    <section className="tech-section">
+      <div className="techstack-bg techstack-bg--one"></div>
+      <div className="techstack-bg techstack-bg--two"></div>
 
-      {/* BACKGROUND EFFECTS */}
-      <div className="tech-bg tech-bg-1"></div>
-      <div className="tech-bg tech-bg-2"></div>
-
-      <div className="tech-container">
+      <div className="techstack-container">
 
         {/* HEADER */}
-        <div className="tech-header">
+        <div className="techstack-header">
 
-          <span className="tech-tag">
+          <span className="techstack-badge">
             <Sparkles size={16} />
             Technologies & Tools
           </span>
 
-          <h2>
-            Modern Tech Stack
-            Powering Digital Innovation
+          <h2 className="techstack-title">
+            Modern Tech Stack Powering Digital Innovation
           </h2>
 
-          <p>
-            We leverage modern technologies, frameworks,
-            and marketing tools to deliver scalable,
-            high-performance, and future-ready digital solutions.
+          <p className="techstack-subtitle">
+            We use modern technologies and marketing tools to build scalable digital solutions.
           </p>
 
         </div>
 
-        {/* DEVELOPMENT STACK */}
-        <div className="stack-section">
+        {/* DEVELOPMENT */}
+        <div className="techstack-block">
 
-          <div className="stack-title">
-
-            <div className="stack-icon">
+          <div className="techstack-block-header">
+            <div className="techstack-block-icon">
               <Code2 size={22} />
             </div>
-
             <div>
               <h3>Development Technologies</h3>
-              <p>Frontend, Backend & UI/UX Technologies</p>
+              <p>Frontend, Backend & UI/UX</p>
             </div>
-
           </div>
 
-          <div className="tech-grid">
-
-            {devStack.map((item, index) => (
-
-              <div
-                className="tech-card"
-                key={index}
-              >
-
-                <div className="tech-image">
-                  <img
-                    src={item.img}
-                    alt={item.name}
-                  />
-                </div>
-
-                <div className="tech-content">
-
-                  <h4>{item.name}</h4>
-
-                  <p>{item.desc}</p>
-
-                  {/* <button className="tech-btn">
-                    Explore
-                    <ArrowUpRight size={16} />
-                  </button> */}
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={3}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2500 }}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1200: { slidesPerView: 3 }
+            }}
+          >
+            {renderSlides(devStack)}
+          </Swiper>
 
         </div>
 
-        {/* MARKETING STACK */}
-        <div className="stack-section">
+        {/* MARKETING */}
+        <div className="techstack-block">
 
-          <div className="stack-title">
-
-            <div className="stack-icon">
+          <div className="techstack-block-header">
+            <div className="techstack-block-icon">
               <Megaphone size={22} />
             </div>
-
             <div>
               <h3>Digital Marketing Tools</h3>
-              <p>Analytics, SEO & Marketing Platforms</p>
+              <p>SEO, Ads & Analytics</p>
             </div>
-
           </div>
 
-          <div className="tech-grid">
-
-            {marketingStack.map((item, index) => (
-
-              <div
-                className="tech-card"
-                key={index}
-              >
-
-                <div className="tech-image">
-                  <img
-                    src={item.img}
-                    alt={item.name}
-                  />
-                </div>
-
-                <div className="tech-content">
-
-                  <h4>{item.name}</h4>
-
-                  <p>{item.desc}</p>
-
-                  {/* <button className="tech-btn">
-                    Explore
-                    <ArrowUpRight size={16} />
-                  </button> */}
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={3}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2500 }}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1200: { slidesPerView: 3 }
+            }}
+          >
+            {renderSlides(marketingStack)}
+          </Swiper>
 
         </div>
 
       </div>
-
     </section>
   );
 };

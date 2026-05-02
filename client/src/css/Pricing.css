@@ -1,41 +1,70 @@
-
 /* =========================
-   PRICING SECTION
+   PRICING WRAPPER
 ========================= */
 
-.pricing-section {
+.pricing-wrapper {
   padding: 120px 8%;
   background: #0f172a;
   position: relative;
+  overflow: hidden;
 }
 
-/* FORCE ALL TEXT WHITE */
-.pricing-section,
-.pricing-section * {
+/* FORCE WHITE TEXT */
+.pricing-wrapper,
+.pricing-wrapper * {
   color: #ffffff !important;
+}
+
+/* =========================
+   BACKGROUND EFFECTS
+========================= */
+
+.pricing-bg-layer {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.pricing-bg-layer--one {
+  width: 400px;
+  height: 400px;
+  background: #3b82f6;
+  top: -100px;
+  left: -100px;
+}
+
+.pricing-bg-layer--two {
+  width: 500px;
+  height: 500px;
+  background: #9333ea;
+  bottom: -150px;
+  right: -150px;
 }
 
 /* =========================
    CONTAINER
 ========================= */
 
-.pricing-container {
+.pricing-inner-container {
   max-width: 1400px;
   margin: 0 auto;
-  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 /* =========================
    HEADER
 ========================= */
 
-.pricing-header {
+.pricing-header-block {
   text-align: center;
   max-width: 750px;
   margin: 0 auto 70px;
 }
 
-.pricing-tag {
+.pricing-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -50,29 +79,28 @@
   margin-bottom: 18px;
 }
 
-.pricing-header h2 {
+.pricing-title {
   font-size: 44px;
   line-height: 1.2;
   margin-bottom: 15px;
 }
 
-.pricing-header p {
+.pricing-subtitle {
   opacity: 0.85;
   line-height: 1.7;
 }
 
 /* =========================
-   GRID (FIXED CENTER ISSUE)
+   GRID (CENTERED PERFECTLY)
 ========================= */
 
-.pricing-grid {
+.pricing-card-grid {
   display: grid;
 
-  /* 🔥 FIX: fixed card width columns */
-  grid-template-columns: repeat(auto-fit, 340px);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 340px));
 
-  /* 🔥 CENTER ENTIRE GRID */
   justify-content: center;
+  justify-items: center;
 
   gap: 30px;
 }
@@ -81,8 +109,9 @@
    CARD
 ========================= */
 
-.pricing-card {
-  width: 340px;
+.pricing-card-item {
+  width: 100%;
+  max-width: 340px;
 
   display: flex;
   flex-direction: column;
@@ -99,7 +128,7 @@
   transition: all 0.3s ease;
 }
 
-.pricing-card:hover {
+.pricing-card-item:hover {
   transform: translateY(-10px);
   border-color: #3b82f6;
   box-shadow: 0 20px 50px rgba(59, 130, 246, 0.15);
@@ -109,7 +138,7 @@
    IMAGE
 ========================= */
 
-.pricing-image {
+.pricing-card-image {
   position: relative;
   width: 100%;
   height: 160px;
@@ -118,19 +147,19 @@
   margin-bottom: 20px;
 }
 
-.pricing-image img {
+.pricing-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.pricing-overlay {
+.pricing-card-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
 }
 
-.pricing-icon {
+.pricing-card-icon {
   position: absolute;
   top: 12px;
   left: 12px;
@@ -140,12 +169,12 @@
    CONTENT
 ========================= */
 
-.pricing-content h3 {
+.pricing-card-title {
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.pricing-content p {
+.pricing-card-desc {
   opacity: 0.85;
   font-size: 14px;
   margin-bottom: 18px;
@@ -156,14 +185,14 @@
    FEATURES
 ========================= */
 
-.pricing-features {
+.pricing-card-features {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.pricing-feature {
+.pricing-card-feature {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -175,7 +204,7 @@
    BUTTON
 ========================= */
 
-.pricing-btn {
+.pricing-card-button {
   width: 100%;
   padding: 12px;
 
@@ -195,7 +224,7 @@
   transition: 0.3s ease;
 }
 
-.pricing-btn:hover {
+.pricing-card-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
 }
@@ -205,31 +234,27 @@
 ========================= */
 
 @media (max-width: 1200px) {
-  .pricing-header h2 {
+  .pricing-title {
     font-size: 38px;
   }
 }
 
 @media (max-width: 768px) {
-  .pricing-section {
+  .pricing-wrapper {
     padding: 100px 6%;
   }
 
-  .pricing-header h2 {
+  .pricing-title {
     font-size: 32px;
   }
 }
 
 @media (max-width: 600px) {
-  .pricing-header h2 {
+  .pricing-title {
     font-size: 28px;
   }
 
-  .pricing-card {
-    width: 100%;
-  }
-
-  .pricing-grid {
+  .pricing-card-grid {
     grid-template-columns: 1fr;
   }
 }

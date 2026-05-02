@@ -12,7 +12,6 @@ import {
 import "../css/Pricing.css";
 
 const Pricing = () => {
-
   const navigate = useNavigate();
 
   const pricingData = [
@@ -52,111 +51,76 @@ const Pricing = () => {
   ];
 
   return (
-
-    <section className="pricing-section">
+    <section className="pricing-wrapper">
 
       {/* BACKGROUND EFFECTS */}
-      <div className="pricing-bg pricing-bg-1"></div>
-      <div className="pricing-bg pricing-bg-2"></div>
+      <div className="pricing-bg-layer pricing-bg-layer--one"></div>
+      <div className="pricing-bg-layer pricing-bg-layer--two"></div>
 
-      <div className="pricing-container">
+      <div className="pricing-inner-container">
 
         {/* HEADER */}
-        <div className="pricing-header">
-
-          <span className="pricing-tag">
+        <div className="pricing-header-block">
+          <span className="pricing-badge">
             <Sparkles size={16} />
             Flexible Pricing Plans
           </span>
 
-          <h2>
-            Affordable Solutions
-            For Every Business
+          <h2 className="pricing-title">
+            Affordable Solutions For Every Business
           </h2>
 
-          <p>
-            Choose the perfect service package designed to help
-            your business grow with modern technology,
-            strategic marketing, and scalable digital solutions.
+          <p className="pricing-subtitle">
+            Choose the perfect service package designed to help your business grow
+            with modern technology, strategic marketing, and scalable digital solutions.
           </p>
-
         </div>
 
-        {/* PRICING GRID */}
-        <div className="pricing-grid">
+        {/* GRID */}
+        <div className="pricing-card-grid">
 
-          {pricingData.map((item, index) => (
-
-            <div
-              className="pricing-card"
-              key={index}
-            >
+          {pricingData.map((item) => (
+            <div className="pricing-card-item" key={item.title}>
 
               {/* IMAGE */}
-              <div className="pricing-image">
-
-                <img
-                  src={item.image}
-                  alt={item.title}
-                />
-
-                <div className="pricing-overlay"></div>
-
-                <div className="pricing-icon">
-                  {item.icon}
-                </div>
-
+              <div className="pricing-card-image">
+                <img src={item.image} alt={item.title} />
+                <div className="pricing-card-overlay" />
+                <div className="pricing-card-icon">{item.icon}</div>
               </div>
 
               {/* CONTENT */}
-              <div className="pricing-content">
+              <div className="pricing-card-content">
 
-                <h3>{item.title}</h3>
+                <h3 className="pricing-card-title">{item.title}</h3>
+                <p className="pricing-card-desc">{item.desc}</p>
 
-                <p>{item.desc}</p>
+                <div className="pricing-card-features">
 
-                {/* FEATURES */}
-                <div className="pricing-features">
-
-                  {item.features.map((feature, i) => (
-
-                    <div
-                      className="pricing-feature"
-                      key={i}
-                    >
-
+                  {item.features.map((feature) => (
+                    <div className="pricing-card-feature" key={feature}>
                       <CheckCircle2 size={18} />
-
                       <span>{feature}</span>
-
                     </div>
-
                   ))}
 
                 </div>
 
-                {/* BUTTON */}
                 <button
-                  className="pricing-btn"
+                  className="pricing-card-button"
                   onClick={() => navigate(item.route)}
                 >
-
                   {item.button}
-
                   <ArrowUpRight size={18} />
-
                 </button>
 
               </div>
-
             </div>
-
           ))}
 
         </div>
 
       </div>
-
     </section>
   );
 };

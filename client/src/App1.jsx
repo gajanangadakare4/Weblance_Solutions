@@ -22,7 +22,7 @@ const App1 = () => {
     <>
       <Navbar />
 
-      <div id="home">
+      {/* <div id="home">
         <Header_Section />
       </div>
 
@@ -56,7 +56,7 @@ const App1 = () => {
       <div id="contact">
         <EnquiryForm />
         <Address />
-      </div>
+      </div> */}
 
       <Footer />
     </>

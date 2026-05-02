@@ -1,4 +1,10 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import {
   Sparkles,
@@ -17,65 +23,37 @@ import "../css/Projects.css";
 
 const Projects = () => {
 
-  /* STATS */
   const stats = [
-    {
-      icon: <Briefcase size={26} />,
-      number: "50+",
-      label: "Projects Completed"
-    },
-
-    {
-      icon: <Users size={26} />,
-      number: "30+",
-      label: "Happy Clients"
-    },
-
-    {
-      icon: <Trophy size={26} />,
-      number: "5+",
-      label: "Years Experience"
-    },
-
-    {
-      icon: <Layers3 size={26} />,
-      number: "10+",
-      label: "Ongoing Projects"
-    }
+    { icon: <Briefcase size={26} />, number: "50+", label: "Projects Completed" },
+    { icon: <Users size={26} />, number: "30+", label: "Happy Clients" },
+    { icon: <Trophy size={26} />, number: "5+", label: "Years Experience" },
+    { icon: <Layers3 size={26} />, number: "10+", label: "Ongoing Projects" }
   ];
 
-  /* PROJECTS */
   const projects = [
     {
       category: "Web Development",
       title: "Business Website",
-      desc:
-        "A modern responsive website built to strengthen brand identity and improve online visibility for businesses.",
+      desc: "Modern responsive website for brand identity and visibility.",
       img: project1
     },
-
     {
       category: "E-Commerce",
-      title: "E-Commerce Store",
-      desc:
-        "A scalable online shopping platform with secure payment integration and seamless user experience.",
+      title: "Online Store",
+      desc: "Scalable shopping platform with secure payments.",
       img: project2
     },
-
     {
-      category: "Digital Marketing",
-      title: "Marketing Landing Page",
-      desc:
-        "A high-converting landing page optimized for lead generation and digital advertising campaigns.",
+      category: "Marketing",
+      title: "Landing Page",
+      desc: "High-converting landing page for campaigns.",
       img: project3
     }
   ];
 
   return (
-
     <section className="project-section">
 
-      {/* BACKGROUND EFFECTS */}
       <div className="project-bg project-bg-1"></div>
       <div className="project-bg project-bg-2"></div>
 
@@ -83,111 +61,72 @@ const Projects = () => {
 
         {/* HEADER */}
         <div className="project-header">
-
           <span className="project-tag">
             <Sparkles size={16} />
             Portfolio & Achievements
           </span>
 
-          <h2>
-            Delivering Impactful Digital
-            Solutions For Growing Brands
-          </h2>
+          <h2>Delivering Impactful Digital Solutions</h2>
 
           <p>
-            We create high-performance digital products and experiences
-            that help businesses improve visibility, engagement,
-            and long-term growth.
+            High-performance digital products that drive growth and engagement.
           </p>
-
         </div>
 
         {/* STATS */}
         <div className="stats-grid">
-
-          {stats.map((item, index) => (
-
-            <div
-              className="stat-card"
-              key={index}
-            >
-
-              <div className="stat-icon">
-                {item.icon}
-              </div>
-
+          {stats.map((item, i) => (
+            <div className="stat-card" key={i}>
+              <div className="stat-icon">{item.icon}</div>
               <div className="stat-content">
-
                 <h3>{item.number}</h3>
-
                 <p>{item.label}</p>
-
               </div>
-
             </div>
-
           ))}
-
         </div>
 
-        {/* PROJECTS */}
-        <div className="project-grid">
-
+        {/* CAROUSEL */}
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000 }}
+          spaceBetween={25}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
           {projects.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="project-card">
 
-            <div
-              className="project-card"
-              key={index}
-            >
+                <div className="project-img">
+                  <img src={item.img} alt={item.title} />
 
-              {/* IMAGE */}
-              <div className="project-img">
-
-                <img
-                  src={item.img}
-                  alt={item.title}
-                />
-
-                <div className="project-overlay">
-
-                  <button className="project-view-btn">
-
-                    View Project
-
-                    <ArrowUpRight size={16} />
-
-                  </button>
-
+                  <div className="project-overlay">
+                    <button className="project-view-btn">
+                      View Project <ArrowUpRight size={16} />
+                    </button>
+                  </div>
                 </div>
 
-              </div>
+                <div className="project-content">
+                  <span className="project-category">{item.category}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
 
-              {/* CONTENT */}
-              <div className="project-content">
-
-                <span className="project-category">
-                  {item.category}
-                </span>
-
-                <h3>{item.title}</h3>
-
-                <p>{item.desc}</p>
+                <div className="project-number">0{index + 1}</div>
 
               </div>
-
-              {/* CARD NUMBER */}
-              <div className="project-number">
-                0{index + 1}
-              </div>
-
-            </div>
-
+            </SwiperSlide>
           ))}
-
-        </div>
+        </Swiper>
 
       </div>
-
     </section>
   );
 };

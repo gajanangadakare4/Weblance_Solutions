@@ -1,5 +1,5 @@
 /* =========================
-   WHY CHOOSE US SECTION
+   SECTION
 ========================= */
 
 .whyus-section {
@@ -10,8 +10,13 @@
   color: #fff;
 }
 
+.whyus-section,
+.whyus-section * {
+  color: #fff !important;
+}
+
 /* =========================
-   BACKGROUND EFFECTS
+   BACKGROUND
 ========================= */
 
 .whyus-bg {
@@ -42,9 +47,8 @@
 ========================= */
 
 .whyus-container {
-  width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: auto;
   position: relative;
   z-index: 2;
 }
@@ -55,7 +59,7 @@
 
 .whyus-header {
   max-width: 760px;
-  margin: 0 auto 90px;
+  margin: 0 auto 80px;
   text-align: center;
 }
 
@@ -63,226 +67,94 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
   padding: 10px 18px;
   border-radius: 50px;
-
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.1);
-
-  backdrop-filter: blur(10px);
-
-  font-size: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .whyus-header h2 {
-  font-size: 54px;
-  line-height: 1.15;
-  margin-bottom: 24px;
-  font-weight: 700;
-  color: #f8fafc;
+  font-size: 48px;
+  margin-bottom: 15px;
 }
 
 .whyus-header p {
-  color: #cbd5e1;
-  font-size: 17px;
-  line-height: 1.8;
+  opacity: 0.85;
+  line-height: 1.7;
 }
 
 /* =========================
-   GRID
+   SWIPER FIX
 ========================= */
 
-.whyus-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+.swiper {
+  padding-bottom: 60px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #3b82f6;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255,255,255,0.4);
+}
+
+.swiper-pagination-bullet-active {
+  background: #3b82f6;
 }
 
 /* =========================
-   CARD
+   CARD (CAROUSEL FIXED)
 ========================= */
 
 .whyus-card {
   position: relative;
-
-  padding: 32px 28px;
-  border-radius: 28px;
-
+  padding: 28px;
+  border-radius: 24px;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter: blur(14px);
-
-  overflow: hidden;
-
-  transition: all 0.35s ease;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease;
 }
 
 .whyus-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   border-color: #3b82f6;
-  box-shadow: 0 18px 40px rgba(59,130,246,0.16);
 }
 
-/* CARD GLOW */
-
-.whyus-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    135deg,
-    rgba(59,130,246,0.08),
-    rgba(147,51,234,0.08)
-  );
-
-  opacity: 0;
-  transition: 0.35s ease;
-}
-
-.whyus-card:hover::before {
-  opacity: 1;
-}
-
-/* =========================
-   ICON
-========================= */
-
+/* ICON */
 .whyus-icon {
-  width: 72px;
-  height: 72px;
-
-  border-radius: 22px;
-
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 30px;
-
-  margin-bottom: 24px;
-
-  background: linear-gradient(
-    135deg,
-    #3b82f6,
-    #9333ea
-  );
-
-  position: relative;
-  z-index: 2;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
 }
 
-/* =========================
-   CONTENT
-========================= */
-
-.whyus-content {
-  position: relative;
-  z-index: 2;
-}
-
+/* CONTENT */
 .whyus-content h3 {
-  font-size: 24px;
-  line-height: 1.4;
-  margin-bottom: 16px;
-  color: #fff;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .whyus-content p {
-  color: #cbd5e1;
-  font-size: 15px;
-  line-height: 1.9;
-  margin-bottom: 24px;
-}
-
-/* =========================
-   BUTTON
-========================= */
-
-.whyus-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
+  opacity: 0.85;
   font-size: 14px;
-  font-weight: 600;
-
-  color: #60a5fa;
-
-  transition: 0.3s ease;
-
-  cursor: pointer;
+  line-height: 1.6;
 }
 
-.whyus-btn:hover {
-  gap: 12px;
-  color: #fff;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 1200px) {
-
-  .whyus-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .whyus-header h2 {
-    font-size: 48px;
-  }
-}
-
-@media (max-width: 992px) {
-
-  .whyus-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .whyus-header {
-    margin-bottom: 70px;
-  }
-
-  .whyus-header h2 {
-    font-size: 42px;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .whyus-section {
-    padding: 100px 6%;
-  }
-
-  .whyus-header h2 {
-    font-size: 36px;
-  }
-
-  .whyus-header p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .whyus-section {
-    padding: 90px 6%;
-  }
-
-  .whyus-header h2 {
-    font-size: 30px;
-    line-height: 1.25;
-  }
-
-  .whyus-card {
-    padding: 28px 24px;
-  }
-
-  .whyus-content h3 {
-    font-size: 22px;
-  }
+/* NUMBER */
+.whyus-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-weight: bold;
+  opacity: 0.3;
 }
