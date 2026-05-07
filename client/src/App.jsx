@@ -25,6 +25,7 @@ import Process from "./layouts/Process";
 import ContactForm from "./pages/ContactForm";
 import ScrollToTop from "./layouts/ScrollToTop";
 import FAQ from "./layouts/FAQ";
+import Industries from "./layouts/Industries";
 
 const HomePage = () => {
   return (
@@ -43,6 +44,7 @@ const HomePage = () => {
 
       <TechStack />
       <Process />
+      <Industries/>
       <WhyUs />
       <Projects />
       <Reviews />

@@ -107,9 +107,9 @@ const Projects = () => {
                   <img src={item.img} alt={item.title} />
 
                   <div className="project-overlay">
-                    <button className="project-view-btn">
+                    {/* <button className="project-view-btn">
                       View Project <ArrowUpRight size={16} />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
 

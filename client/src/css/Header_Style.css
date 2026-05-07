@@ -1,46 +1,33 @@
 /* =========================
-   HEADER SECTION
+   SECTION
 ========================= */
 
 .header-section {
   position: relative;
+
   min-height: 100vh;
-  padding: 120px 8%;
-  background: #0f172a;
-  overflow: hidden;
-  color: #fff;
+
+  padding: 140px 8% 100px;
+
   display: flex;
   align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(147,51,234,0.18), transparent 30%),
+    #020617;
 }
 
 /* =========================
-   BACKGROUND EFFECTS
+   GLOBAL TEXT
 ========================= */
 
-.header-section::before,
-.header-section::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.25;
-  z-index: 1;
-}
-
-.header-section::before {
-  width: 350px;
-  height: 350px;
-  background: #3b82f6;
-  top: -100px;
-  left: -100px;
-}
-
-.header-section::after {
-  width: 300px;
-  height: 300px;
-  background: #9333ea;
-  bottom: -100px;
-  right: -80px;
+.header-section,
+.header-section * {
+  color: #ffffff;
+  box-sizing: border-box;
 }
 
 /* =========================
@@ -49,12 +36,59 @@
 
 .header-bg {
   position: absolute;
+
   inset: 0;
+
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 35%;
+  background-size: 42%;
+
   opacity: 0.04;
-  z-index: 0;
+
+  pointer-events: none;
+
+  animation: bgFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgFloat {
+
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.04) rotate(2deg);
+  }
+
+}
+
+/* =========================
+   CURSOR LIGHT EFFECT
+========================= */
+
+.header-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  left: var(--x);
+  top: var(--y);
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.12),
+      transparent 60%
+    );
+
+  pointer-events: none;
+
+  z-index: 1;
 }
 
 /* =========================
@@ -63,146 +97,214 @@
 
 .container {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
+  max-width: 1450px;
 
-.header-wrapper {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 80px;
+  margin: auto;
+
+  position: relative;
+  z-index: 5;
 }
 
 /* =========================
-   LEFT CONTENT
+   WRAPPER
+========================= */
+
+.header-wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+/* =========================
+   LEFT SIDE
 ========================= */
 
 .header-left {
-  flex: 1;
-  max-width: 650px;
+  position: relative;
 }
+
+/* HERO TAG */
 
 .hero-tag {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(12px);
+
+  margin-bottom: 28px;
+
   font-size: 14px;
-  color: #fff;
-  margin-bottom: 25px;
+  font-weight: 500;
+
+  letter-spacing: 0.4px;
 }
 
+/* HEADING */
+
 .header-left h1 {
-  font-size: 54px;
-  line-height: 1.15;
-  font-weight: 700;
-  margin-bottom: 25px;
-  color: #cbd5e1;
-  max-width: 700px;
+  font-size: 72px;
+  line-height: 1.05;
+  font-weight: 800;
+
+  margin-bottom: 28px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #93c5fd,
+    #c084fc
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+/* PARAGRAPH */
 
 .header-left p {
   max-width: 650px;
+
   font-size: 17px;
-  line-height: 1.8;
-  margin-bottom: 35px;
-  color: #cbd5e1;
+  line-height: 2;
+
+  opacity: 0.78;
+
+  margin-bottom: 40px;
 }
 
 /* =========================
-   HERO POINTS
+   POINTS
 ========================= */
 
 .hero-points {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+
+  gap: 18px;
 }
 
 .hero-point {
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 20px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.03)
+    );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
   backdrop-filter: blur(12px);
-  transition: all 0.3s ease;
-  color: #cbd5e1;
+
+  font-size: 15px;
   font-weight: 500;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
 }
 
 .hero-point:hover {
-  transform: translateY(-6px);
-  border-color: #3b82f6;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+  transform:
+    translateY(-6px);
+
+  border-color: rgba(59,130,246,0.3);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(59,130,246,0.15),
+      rgba(147,51,234,0.10)
+    );
 }
 
 /* =========================
-   RIGHT FORM
+   RIGHT SIDE
 ========================= */
 
 .header-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+  position: relative;
 }
+
+/* =========================
+   FORM
+========================= */
 
 .hero-form {
   position: relative;
-  width: 100%;
-  max-width: 520px;
-  padding: 40px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
+
+  padding: 42px;
+
+  border-radius: 34px;
+
   overflow: hidden;
-  z-index: 2;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.04)
+    );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.35);
 }
 
-/* =========================
-   MOUSE GLOW EFFECT
-========================= */
+/* GLOW BORDER */
 
 .hero-form::before {
   content: "";
+
   position: absolute;
-  width: 300px;
-  height: 300px;
-  left: var(--x, 50%);
-  top: var(--y, 50%);
-  transform: translate(-50%, -50%);
-  background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.18),
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
 
-.hero-form * {
-  position: relative;
-  z-index: 1;
-}
+  inset: 0;
 
-/* =========================
-   FORM TITLE
-========================= */
+  border-radius: inherit;
+
+  padding: 1px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59,130,246,0.5),
+      rgba(147,51,234,0.5)
+    );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0.8;
+}
 
 .hero-form h2 {
   font-size: 34px;
   font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #f8fafc;
+
+  margin-bottom: 32px;
 }
 
 /* =========================
@@ -211,57 +313,60 @@
 
 .form-group {
   margin-bottom: 22px;
+
+  position: relative;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+/* INPUTS */
+
+.hero-form input,
+.hero-form select,
+.hero-form textarea {
   width: 100%;
-  padding: 16px 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.05);
+
+  padding: 18px 20px;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(255,255,255,0.05);
+
   backdrop-filter: blur(10px);
-  color: #fff;
-  font-size: 15px;
+
   outline: none;
-  transition: all 0.3s ease;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
-.form-group textarea {
+.hero-form input::placeholder,
+.hero-form textarea::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.hero-form select option {
+  color: #000;
+}
+
+.hero-form input:focus,
+.hero-form select:focus,
+.hero-form textarea:focus {
+  border-color: rgba(59,130,246,0.5);
+
+  background: rgba(255,255,255,0.08);
+
+  transform: translateY(-2px);
+}
+
+/* TEXTAREA */
+
+.hero-form textarea {
   resize: none;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #94a3b8;
-}
-
-.form-group select {
-  color: #cbd5e1;
-}
-
-.form-group option {
-  background: #0f172a;
-  color: #fff;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-}
-
-/* =========================
-   ERROR MESSAGE
-========================= */
-
-.error {
-  display: block;
-  margin-top: 8px;
-  color: #f87171;
-  font-size: 13px;
 }
 
 /* =========================
@@ -270,38 +375,67 @@
 
 .hero-btn {
   width: 100%;
-  padding: 16px;
+
+  padding: 18px;
+
   border: none;
-  border-radius: 14px;
+
+  border-radius: 18px;
+
   cursor: pointer;
 
-  background: linear-gradient(
-    135deg,
-    #3b82f6,
-    #9333ea
-  );
-
-  color: #fff;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
 
-  transition: all 0.3s ease;
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #9333ea
+    );
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .hero-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+  transform:
+    translateY(-4px)
+    scale(1.01);
+
+  box-shadow:
+    0 18px 40px rgba(59,130,246,0.35);
 }
 
 /* =========================
-   SUCCESS MESSAGE
+   ERROR / SUCCESS
 ========================= */
+
+.error {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #f87171;
+
+  font-size: 13px;
+}
 
 .success-msg {
   margin-top: 18px;
-  text-align: center;
-  font-size: 15px;
+
+  padding: 14px 18px;
+
+  border-radius: 14px;
+
+  background: rgba(34,197,94,0.12);
+
+  border: 1px solid rgba(34,197,94,0.25);
+
   color: #4ade80;
+
+  font-size: 14px;
 }
 
 /* =========================
@@ -311,78 +445,58 @@
 @media (max-width: 1200px) {
 
   .header-wrapper {
-    gap: 50px;
-  }
-
-  .header-left h1 {
-    font-size: 48px;
-  }
-}
-
-@media (max-width: 992px) {
-
-  .header-wrapper {
-    flex-direction: column;
-    text-align: center;
+    grid-template-columns: 1fr;
   }
 
   .header-left {
-    max-width: 100%;
+    text-align: center;
   }
 
   .header-left p {
     margin-inline: auto;
   }
 
-  .header-right {
-    justify-content: center;
-    width: 100%;
+}
+
+@media (max-width: 992px) {
+
+  .header-left h1 {
+    font-size: 56px;
   }
 
-  .hero-points {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 768px) {
 
   .header-section {
-    padding: 100px 6%;
+    padding: 120px 6% 90px;
   }
 
   .header-left h1 {
-    font-size: 42px;
-  }
-
-  .hero-form {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .header-section {
-    padding: 90px 6%;
-  }
-
-  .header-left h1 {
-    font-size: 32px;
-    line-height: 1.25;
+    font-size: 40px;
   }
 
   .header-left p {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .hero-points {
+    grid-template-columns: 1fr;
   }
 
   .hero-form {
-    padding: 24px;
+    padding: 30px 24px;
   }
 
   .hero-form h2 {
     font-size: 28px;
   }
 
-  .hero-point {
-    padding: 16px;
+  .hero-form input,
+  .hero-form select,
+  .hero-form textarea {
+    padding: 16px 18px;
   }
+
 }

@@ -1,12 +1,13 @@
 import React from "react";
 import {
   Sparkles,
-  ArrowUpRight,
   Globe,
   Megaphone,
   Smartphone,
   ShoppingCart,
   Share2,
+  BrainCircuit,
+  ShieldCheck,
 } from "lucide-react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,43 +23,73 @@ import social_media_marketing from "../assets/social_media_marketing.png";
 import ecommerce from "../assets/e-commerce.png";
 import mobile_app from "../assets/mobile_app.jpg";
 
+/* NEW IMAGES */
+import ai_service from "../assets/ai-services.jpg";
+import cybersecurity from "../assets/cybersecurity.jpg";
+
 import "../css/Service.css";
 
 const Service = () => {
+
   const services = [
+
     {
       title: "Web Development",
       desc: "Fast, scalable, and modern websites built for performance and business growth.",
       img: web_dev,
       icon: <Globe size={22} />,
     },
+
     {
       title: "Digital Marketing",
       desc: "Data-driven marketing strategies that increase visibility, traffic, and conversions.",
       img: digital_marketing,
       icon: <Megaphone size={22} />,
     },
+
     {
       title: "Social Media Marketing",
       desc: "Build strong brand engagement through impactful social media campaigns.",
       img: social_media_marketing,
       icon: <Share2 size={22} />,
     },
+
     {
       title: "E-Commerce Solutions",
       desc: "Secure and conversion-focused online stores designed for seamless shopping experiences.",
       img: ecommerce,
       icon: <ShoppingCart size={22} />,
     },
+
     {
       title: "Mobile App Development",
       desc: "Modern Android & iOS applications with smooth user experience and scalable architecture.",
       img: mobile_app,
       icon: <Smartphone size={22} />,
     },
+
+    /* NEW AI SERVICE */
+
+    {
+      title: "AI Solutions",
+      desc: "Custom AI-powered solutions including chatbots, automation systems, smart analytics, and AI integrations.",
+      img: ai_service,
+      icon: <BrainCircuit size={22} />,
+    },
+
+    /* NEW CYBERSECURITY SERVICE */
+
+    {
+      title: "Cybersecurity Services",
+      desc: "Advanced security solutions to protect websites, applications, business systems, and customer data.",
+      img: cybersecurity,
+      icon: <ShieldCheck size={22} />,
+    },
+
   ];
 
   return (
+
     <section id="services" className="service-section">
 
       {/* BACKGROUND EFFECTS */}
@@ -75,7 +106,9 @@ const Service = () => {
             Our Premium Services
           </span>
 
-          <h2>Smart Digital Solutions For Modern Businesses</h2>
+          <h2>
+            Smart Digital Solutions For Modern Businesses
+          </h2>
 
           <p>
             We provide innovative, scalable, and performance-driven digital services
@@ -91,7 +124,10 @@ const Service = () => {
           slidesPerView={3}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
@@ -136,6 +172,7 @@ const Service = () => {
       </div>
 
     </section>
+
   );
 };
 

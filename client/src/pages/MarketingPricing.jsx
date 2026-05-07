@@ -70,7 +70,7 @@ const MarketingPricing = () => {
           <div className="pricing-header">
 
             <span className="pricing-badge">
-              📈 Growth Marketing
+              📈 Digital Marketing Plans
             </span>
 
             <h2>Scale Your Business With Smart Marketing</h2>

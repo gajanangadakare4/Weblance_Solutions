@@ -72,7 +72,7 @@ const WebsitePricing = () => {
 
           {/* HEADER */}
           <div className="pricing-header">
-            <span className="pricing-badge">Website Solutions</span>
+            <span className="pricing-badge">Website Development Plans</span>
 
             <h2>Flexible Pricing for Every Business</h2>
 

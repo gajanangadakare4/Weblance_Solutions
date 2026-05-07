@@ -36,7 +36,7 @@ const Contact = () => {
               <strong>Address:</strong>
 
               <span>
-                4th Cross Vidyanagar,
+                Vidyanagar,
                 Hubli, Karnataka, India
               </span>
             </div>

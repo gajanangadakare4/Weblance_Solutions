@@ -122,7 +122,7 @@ const getBotReply = (msg) => {
   </a>
 
   <a
-    href="https://instagram.com"
+    href="https://www.instagram.com/webl_ancesolutions/"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -130,7 +130,7 @@ const getBotReply = (msg) => {
   </a>
 
   <a
-    href="https://facebook.com"
+    href="https://www.facebook.com/profile.php?id=61589250695404"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -208,7 +208,7 @@ const getBotReply = (msg) => {
 
         {/* WhatsApp */}
         <a
-          href="https://wa.me/918496950841"
+          href="https://wa.me/919980150841"
           target="_blank"
           rel="noopener noreferrer"
           className="fab whatsapp"
